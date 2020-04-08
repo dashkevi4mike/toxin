@@ -32,3 +32,4 @@ declare module 'stylelint';
 declare module 'favicons-webpack-plugin';
 declare module 'circular-dependency-plugin';
 declare module 'filemanager-webpack-plugin';
+declare module 'clean-webpack-plugin';

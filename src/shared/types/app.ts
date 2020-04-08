@@ -5,8 +5,6 @@ import { SagaIterator } from 'redux-saga';
 
 import * as features from 'features';
 import { Api } from 'services/api/Api';
-import * as ThemeProviderNS from 'services/theme/namespace'; // TODO: УДОЛИ
-import { namespace as NotificationNamespace } from 'services/notification';
 
 export abstract class IModule {
   public getRoutes?(): ReactElement<RouteProps> | Array<ReactElement<RouteProps>>;
@@ -37,11 +35,7 @@ export interface IFeatureEntry {
 
 export interface IAppReduxState {
   // services
-  theme: ThemeProviderNS.IReduxState;
-  notification: NotificationNamespace.IReduxState;
   // features
-  usersSearch: features.usersSearch.namespace.IReduxState;
-  repositoriesSearch: features.repositoriesSearch.namespace.IReduxState;
   profile: features.profile.namespace.IReduxState;
 }
 

@@ -4,31 +4,26 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { autobind } from 'core-decorators';
 
 import { LanguageSelector, withTranslation, ITranslationProps, tKeys } from 'services/i18n';
-import { memoizeByProps } from 'shared/helpers';
-import { withAsyncFeatures } from 'core';
-import * as features from 'features';
+import { entry } from 'features/profile';
 
 import { routes } from '../../routes';
-import { LayoutHeaderMenu, IHeaderMenuItem } from './LayoutHeaderMenu/LayoutHeaderMenu';
+import { LayoutHeaderMenu } from './LayoutHeaderMenu/LayoutHeaderMenu';
 import './Layout.scss';
 
 interface IOwnProps {
   title: string;
 }
 
-interface IFeatureProps {
-  profileFeatureEntry: features.profile.Entry;
-}
+const ProfilePreview = entry.containers.ProfilePreview;
 
-type IProps = IOwnProps & IFeatureProps & RouteComponentProps & ITranslationProps;
+type IProps = IOwnProps & RouteComponentProps & ITranslationProps;
 
 const b = block('layout');
-const { header, footer } = tKeys.shared;
+const { footer } = tKeys.shared;
 
 class LayoutComponent extends React.Component<IProps> {
   public render() {
-    const { children, title, profileFeatureEntry: { containers }, location, t } = this.props;
-    const { ProfilePreview } = containers;
+    const { children, title, location, t } = this.props;
 
     return (
       <div className={b()}>
@@ -36,7 +31,7 @@ class LayoutComponent extends React.Component<IProps> {
           <div className={b('header-content')}>
             <div className={b('left-menu')}>
               <LayoutHeaderMenu
-                menuItems={this.getMenuItems()}
+                menuItems={[]}
                 activeItemPath={location.pathname}
               />
             </div>
@@ -68,18 +63,7 @@ class LayoutComponent extends React.Component<IProps> {
     );
   }
 
-  @memoizeByProps((props: IProps) => [props.t])
-  private getMenuItems(): IHeaderMenuItem[] {
-    const { t } = this.props;
-    return [{
-      path: routes.search.users.getRoutePath(),
-      title: t(header.users),
-    },
-    {
-      path: routes.search.repositories.getRoutePath(),
-      title: t(header.repositories),
-    }];
-  }
+
 
   @autobind
   private handleEditProfileClick() {
@@ -89,8 +73,5 @@ class LayoutComponent extends React.Component<IProps> {
 }
 
 const wrappedComponent = withTranslation()(withRouter(LayoutComponent));
-const Layout = withAsyncFeatures({
-  profileFeatureEntry: features.profile.loadEntry,
-})(wrappedComponent);
 
-export { Layout, LayoutComponent, IProps as ILayoutProps };
+export { wrappedComponent as Layout, LayoutComponent, IProps as ILayoutProps };

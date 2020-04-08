@@ -1,24 +1,19 @@
 import React from 'react';
 import block from 'bem-cn';
 
-import * as features from 'features';
-import { withAsyncFeatures } from 'core';
+import { entry as profileEntry } from 'features/profile/entry';
 import { useTranslation, tKeys } from 'services/i18n';
 
 import { Layout } from '../../../../shared';
 import './ProfileLayout.scss';
 
-interface IFeatureProps {
-  profileFeatureEntry: features.profile.Entry;
-}
+type IProps = {};
 
-type IProps = IFeatureProps;
+const ProfileEdit = profileEntry.containers.ProfileEdit;
 
 const b = block('profile-layout');
 
-function ProfileLayoutComponent(props: IProps) {
-  const { profileFeatureEntry: { containers } } = props;
-  const { ProfileEdit } = containers;
+function ProfileLayoutComponent(_props: IProps) {
   const { t } = useTranslation();
 
   return (
@@ -29,9 +24,6 @@ function ProfileLayoutComponent(props: IProps) {
     </Layout>
   );
 }
+;
 
-const ProfileLayout = withAsyncFeatures({
-  profileFeatureEntry: features.profile.loadEntry,
-})(ProfileLayoutComponent);
-
-export { ProfileLayout, ProfileLayoutComponent, IProps as IProfileLayoutProps };
+export { ProfileLayoutComponent as ProfileLayout, IProps as IProfileLayoutProps };

@@ -3,7 +3,7 @@ import { Field, FieldRenderProps, FieldProps as RFFieldProps } from 'react-final
 // eslint-disable-next-line import/no-unresolved
 import { MergeRight } from '_helpers';
 
-type BaseWrappedFieldProps = FieldRenderProps & {
+type BaseWrappedFieldProps = FieldRenderProps<> & {
   value?: any;
   onChange?: any;
 };

@@ -1,1 +1,0 @@
-export { getSelectValuesToLabelsMap } from './getSelectValuesToLabelsMap';

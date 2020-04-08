@@ -13,7 +13,7 @@ const getDevConfig: (type?: BuildType) => webpack.Configuration = type => {
     mode: 'development',
     devtool: 'source-map',
     entry: {
-      app: './client.tsx',
+      app: './index.tsx',
     },
     module: {
       rules,

@@ -8,7 +8,6 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import threadLoaderLib from 'thread-loader';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
-import FileManagerWebpackPlugin from 'filemanager-webpack-plugin';
 import postcssReporter from 'postcss-reporter';
 import postcssSCSS from 'postcss-scss';
 import autoprefixer from 'autoprefixer';
@@ -19,7 +18,7 @@ import { getEnvParams } from '../src/core/getEnvParams';
 
 export type BuildType = 'dev' | 'prod' | 'server';
 
-const { chunkHash, withAnalyze, chunkName, withHot, isWatchMode, forGHPages } = getEnvParams();
+const { chunkHash, withAnalyze, chunkName, withHot, isWatchMode } = getEnvParams();
 
 const threadLoader: webpack.Loader[] = (() => {
   if (process.env.THREADED === 'true') {
@@ -75,24 +74,7 @@ export const getCommonPlugins: (type: BuildType) => webpack.Plugin[] = type => [
   ) : [])
   .concat(withHot && type !== 'prod' ? (
     new webpack.HotModuleReplacementPlugin()
-  ) : [])
-  .concat(forGHPages ? (
-    new HtmlWebpackPlugin({
-      filename: '404.html',
-      template: 'assets/index.html',
-      chunksSortMode: sortChunks,
-    })
-  ) : [])
-  .concat(forGHPages ? new FileManagerWebpackPlugin({
-    onEnd: {
-      copy: [
-        {
-          source: 'src/assets/ghPages/**',
-          destination: 'build',
-        },
-      ],
-    },
-  }) : []);
+  ) : []);
 
 function sortChunks(a: webpack.compilation.Chunk, b: webpack.compilation.Chunk) {
   const order = ['app', 'vendors', 'runtime'];
@@ -235,7 +217,7 @@ export const commonConfig: webpack.Configuration = {
     hot: withHot,
     contentBase: path.resolve('..', 'build'),
     host: '0.0.0.0',
-    port: 8080,
+    port: 8000,
     inline: true,
     lazy: false,
     historyApiFallback: true,

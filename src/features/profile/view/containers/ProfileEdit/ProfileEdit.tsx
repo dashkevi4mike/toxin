@@ -9,7 +9,6 @@ import { TextInputField, NumberInputField } from 'shared/view/form';
 import { Button } from 'shared/view/elements';
 import { IAppReduxState } from 'shared/types/app';
 import { IProfile } from 'shared/types/models';
-import { actionCreators as notificationActionCreators } from 'services/notification';
 import {
   fieldNames, validateName, validateNickname, validateBio,
 } from './constants';
@@ -35,7 +34,6 @@ function mapState(state: IAppReduxState): IStateProps {
 
 const mapDispatch = {
   saveProfile: actionCreators.saveProfile,
-  setNotification: notificationActionCreators.setNotification,
 };
 
 const b = block('profile-edit');
@@ -102,9 +100,8 @@ class ProfileEditComponent extends React.PureComponent<IProps> {
 
   @autobind
   private handleFormSubmit(values: IProfileEditFormFields) {
-    const { saveProfile, setNotification, t } = this.props;
+    const { saveProfile } = this.props;
     saveProfile(values);
-    setNotification({ kind: 'info', text: t(tKeys.shared.notifications.saved) });
   }
 }
 

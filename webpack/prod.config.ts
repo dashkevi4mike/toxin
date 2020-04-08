@@ -12,7 +12,7 @@ const getProdConfig: (type?: BuildType) => webpack.Configuration = type => {
     ...commonConfig,
     mode: 'production',
     entry: {
-      app: './client.tsx',
+      app: './index.tsx',
     },
     module: {
       rules,

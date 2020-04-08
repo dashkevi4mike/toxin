@@ -1,2 +1,1 @@
-export * from './usersSearch';
-export * from './repositoriesSearch';
+export type MockConvert = () => void;
