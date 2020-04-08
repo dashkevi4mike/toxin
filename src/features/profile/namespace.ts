@@ -11,4 +11,4 @@ export type IProfileEditFormFields = IProfile;
 
 export type ISaveProfile = IAction<'PROFILE:SAVE_PROFILE', IProfileEditFormFields>;
 
-export type IAction = ISaveProfile;
+export type Action = ISaveProfile;

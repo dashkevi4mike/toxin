@@ -3,7 +3,6 @@ import block from 'bem-cn';
 import { connect } from 'react-redux';
 import { autobind } from 'core-decorators';
 
-import { withTranslation, ITranslationProps, tKeys } from 'services/i18n';
 import { IAppReduxState } from 'shared/types/app';
 import { IProfile } from 'shared/types/models';
 import { Popover } from 'shared/view/components';
@@ -24,10 +23,9 @@ interface IStateProps {
   profile: IProfile;
 }
 
-type IProps = IOwnProps & IStateProps & ITranslationProps;
+type IProps = IOwnProps & IStateProps;
 
 const b = block('profile-preview');
-const { profile: intl } = tKeys.features;
 
 function mapState(state: IAppReduxState): IStateProps {
   return {
@@ -43,7 +41,7 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
   private blockRef = createRef<HTMLDivElement>();
 
   public render() {
-    const { profile: { avatarURL, name, nickname, age, bio }, onEditClick, t } = this.props;
+    const { profile: { avatarURL, name, nickname, bio }, onEditClick } = this.props;
     const { isOpen } = this.state;
     return (
       <div className={b()} ref={this.blockRef}>
@@ -72,7 +70,6 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
                   {nickname}
                 </div>
                 <div className={b('age')}>
-                  {t(intl.yearsOld, { count: age })}
                 </div>
               </div>
             </div>
@@ -86,7 +83,6 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
               onClick={onEditClick}
               onKeyPress={this.handleEditButtonKeyPress}
             >
-              {t(intl.edit)}
             </div>
           </div>
         </Popover>
@@ -122,6 +118,6 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
 }
 
 const connectedComponent = connect(mapState)(ProfilePreviewComponent);
-const ProfilePreview = withTranslation()(connectedComponent);
+const ProfilePreview = connectedComponent;
 
 export { ProfilePreview, ProfilePreviewComponent, IProps as IProfilePreviewProps };

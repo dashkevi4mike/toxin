@@ -2,7 +2,6 @@ import React from 'react';
 import block from 'bem-cn';
 
 import { entry as profileEntry } from 'features/profile/entry';
-import { useTranslation, tKeys } from 'services/i18n';
 
 import { Layout } from '../../../../shared';
 import './ProfileLayout.scss';
@@ -14,10 +13,9 @@ const ProfileEdit = profileEntry.containers.ProfileEdit;
 const b = block('profile-layout');
 
 function ProfileLayoutComponent(_props: IProps) {
-  const { t } = useTranslation();
 
   return (
-    <Layout title={t(tKeys.features.profile.editProfile)}>
+    <Layout title={'dd'}>
       <div className={b()}>
         <ProfileEdit />
       </div>

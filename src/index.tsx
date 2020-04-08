@@ -9,7 +9,7 @@ const appData = configureApp();
 
 function main() {
   const app = <App {...appData} />;
-  ReactDOM.hydrate(
+  ReactDOM.render(
     app,
     document.getElementById('root'),
   );

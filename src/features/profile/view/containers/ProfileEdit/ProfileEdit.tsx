@@ -4,14 +4,9 @@ import { connect } from 'react-redux';
 import { Form, FormRenderProps } from 'react-final-form';
 import { autobind } from 'core-decorators';
 
-import { withTranslation, ITranslationProps, tKeys } from 'services/i18n';
-import { TextInputField, NumberInputField } from 'shared/view/form';
 import { Button } from 'shared/view/elements';
 import { IAppReduxState } from 'shared/types/app';
 import { IProfile } from 'shared/types/models';
-import {
-  fieldNames, validateName, validateNickname, validateBio,
-} from './constants';
 import { ProfileAvatar } from '../../components';
 import { IProfileEditFormFields } from '../../../namespace';
 import { actionCreators, selectors } from './../../../redux';
@@ -24,7 +19,7 @@ interface IStateProps {
 
 type IActionProps = typeof mapDispatch;
 
-type IProps = IStateProps & IActionProps & ITranslationProps;
+type IProps = IStateProps & IActionProps;
 
 function mapState(state: IAppReduxState): IStateProps {
   return {
@@ -37,7 +32,6 @@ const mapDispatch = {
 };
 
 const b = block('profile-edit');
-const { profile: intl } = tKeys.features;
 
 class ProfileEditComponent extends React.PureComponent<IProps> {
   public render() {
@@ -54,46 +48,16 @@ class ProfileEditComponent extends React.PureComponent<IProps> {
 
   @autobind
   private renderForm({ handleSubmit }: FormRenderProps) {
-    const { profile: { avatarURL }, t } = this.props;
+    const { profile: { avatarURL } } = this.props;
     return (
       <form onSubmit={handleSubmit} className={b()}>
         <div className={b('avatar')}>
           <ProfileAvatar avatarURL={avatarURL} size="big" />
         </div>
-        <div className={b('fields')}>
-          <div className={b('field')}>
-            <TextInputField
-              name={fieldNames.name}
-              label={t(intl.name)}
-              validate={validateName}
-              t={t}
-            />
-          </div>
-          <div className={b('field')}>
-            <TextInputField
-              name={fieldNames.nickname}
-              label={t(intl.nickname)}
-              validate={validateNickname}
-              t={t}
-            />
-          </div>
-          <div className={b('field')}>
-            <NumberInputField name={fieldNames.age} label={t(intl.age)} t={t} />
-          </div>
-          <div className={b('field')}>
-            <TextInputField
-              name={fieldNames.bio}
-              label={t(intl.bio)}
-              multiline
-              rowsMax={10}
-              validate={validateBio}
-              t={t}
-            />
-          </div>
+        
           <div className={b('button')}>
-            <Button variant="outlined" type="submit">{t(tKeys.shared.save)}</Button>
+            <Button variant="outlined" type="submit">Save</Button>
           </div>
-        </div>
       </form>
     );
   }
@@ -106,6 +70,5 @@ class ProfileEditComponent extends React.PureComponent<IProps> {
 }
 
 const connectedComponent = connect(mapState, mapDispatch)(ProfileEditComponent);
-const ProfileEdit = withTranslation()(connectedComponent);
 
-export { ProfileEdit, ProfileEditComponent, IProps as IProfileEditProps };
+export { connectedComponent as ProfileEdit, ProfileEditComponent, IProps as IProfileEditProps };

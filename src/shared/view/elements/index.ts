@@ -1,4 +1,3 @@
-export * from './Input';
 export * from './Icons';
 export { Typography } from './Typography/Typography';
 export { Button } from './Button/Button';

@@ -3,7 +3,6 @@ import block from 'bem-cn';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { autobind } from 'core-decorators';
 
-import { LanguageSelector, withTranslation, ITranslationProps, tKeys } from 'services/i18n';
 import { entry } from 'features/profile';
 
 import { routes } from '../../routes';
@@ -16,14 +15,13 @@ interface IOwnProps {
 
 const ProfilePreview = entry.containers.ProfilePreview;
 
-type IProps = IOwnProps & RouteComponentProps & ITranslationProps;
+type IProps = IOwnProps & RouteComponentProps;
 
 const b = block('layout');
-const { footer } = tKeys.shared;
 
 class LayoutComponent extends React.Component<IProps> {
   public render() {
-    const { children, title, location, t } = this.props;
+    const { children, title, location } = this.props;
 
     return (
       <div className={b()}>
@@ -37,7 +35,7 @@ class LayoutComponent extends React.Component<IProps> {
             </div>
             <div className={b('right-menu')}>
               <ProfilePreview onEditClick={this.handleEditProfileClick} />
-              <div className={b('language-selector')}><LanguageSelector /></div>
+              <div className={b('language-selector')}></div>
             </div>
           </div>
         </header>
@@ -55,7 +53,6 @@ class LayoutComponent extends React.Component<IProps> {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t(footer.fsd)}
             </a>
           </div>
         </footer>
@@ -72,6 +69,6 @@ class LayoutComponent extends React.Component<IProps> {
   }
 }
 
-const wrappedComponent = withTranslation()(withRouter(LayoutComponent));
+const wrappedComponent = withRouter(LayoutComponent);
 
 export { wrappedComponent as Layout, LayoutComponent, IProps as ILayoutProps };

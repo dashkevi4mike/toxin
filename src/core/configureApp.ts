@@ -2,7 +2,6 @@
 import * as allModules from 'modules';
 import { ReducersMap } from 'shared/types/redux';
 import { IAppData, IModule, RootSaga, IAppReduxState, IReduxEntry } from 'shared/types/app';
-import { initializeI18n } from 'services/i18n/i18nContainer';
 
 import { configureStore, createReducer } from './configureStore';
 import { configureDeps } from './configureDeps';
@@ -22,7 +21,6 @@ function configureApp(data?: IAppData): IAppData {
 
   const { runSaga, store } = configureStore();
   const dependencies = configureDeps();
-  initializeI18n();
 
   modules.forEach((module: IModule) => {
     if (module.getReduxEntry) {
