@@ -1,20 +1,21 @@
 
+import * as allFeatures from 'features';
 import * as allModules from 'modules';
+// import * as allServices from 'services';
 import { ReducersMap } from 'shared/types/redux';
-import { IAppData, IModule, RootSaga, IAppReduxState, IReduxEntry } from 'shared/types/app';
+import { IAppData, IFeature, IModule,
+  RootSaga, IAppReduxState, IReduxEntry } from 'shared/types/app';
 
 import { configureStore, createReducer } from './configureStore';
 import { configureDeps } from './configureDeps';
 
 type ReducerName = keyof IAppReduxState;
 
-function configureApp(data?: IAppData): IAppData {
+function configureApp(): IAppData {
   /* Prepare main app elements */
+  const features: IFeature[] = Object.values(allFeatures);
   const modules: IModule[] = Object.values(allModules);
-
-  if (data) {
-    return { ...data, modules };
-  }
+  const services: IFeature[] = Object.values([]);
 
   const connectedSagas: RootSaga[] = [];
   const connectedReducers: Partial<ReducersMap<IAppReduxState>> = {};
@@ -22,11 +23,17 @@ function configureApp(data?: IAppData): IAppData {
   const { runSaga, store } = configureStore();
   const dependencies = configureDeps();
 
-  modules.forEach((module: IModule) => {
-    if (module.getReduxEntry) {
-      connectEntryToStore(module.getReduxEntry());
+  features.forEach((feature: IFeature) => {
+    if (feature.entry && feature.entry.reduxEntry) {
+      connectEntryToStore(feature.entry.reduxEntry);
     }
   });
+
+  // services.forEach((service: IFeature) => {
+  //   if (service.entry && service.entry.reduxEntry) {
+  //     connectEntryToStore(service.entry.reduxEntry);
+  //   }
+  // });
 
   function connectEntryToStore({ reducers, sagas }: IReduxEntry) {
     if (!store) {
@@ -49,7 +56,7 @@ function configureApp(data?: IAppData): IAppData {
       }
     }
 
-    if (sagas && __CLIENT__) {
+    if (sagas) {
       sagas.forEach((saga: RootSaga) => {
         if (!connectedSagas.includes(saga) && runSaga) {
           runSaga(saga(dependencies));
@@ -59,7 +66,7 @@ function configureApp(data?: IAppData): IAppData {
     }
   }
 
-  return { modules, store };
+  return { modules, store, features, services };
 }
 
 export { configureApp };

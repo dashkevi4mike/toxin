@@ -8,12 +8,16 @@ import { Api } from 'services/api/Api';
 
 export abstract class IModule {
   public getRoutes?(): ReactElement<RouteProps> | Array<ReactElement<RouteProps>>;
+}
 
-  public getReduxEntry?(): IReduxEntry;
+export interface IFeature {
+  entry: IFeatureEntry;
 }
 
 export interface IAppData {
   modules: IModule[];
+  services: IFeature[];
+  features: IFeature[];
   store: Store<IAppReduxState>;
 }
 
