@@ -15,24 +15,12 @@ function configureStore(): IStoreData {
   const sagaMiddleware = createSagaMiddleware();
   const middlewares: Middleware[] = [sagaMiddleware];
 
-  const isBrowser = typeof window !== 'undefined';
-  const composeEnhancers = isBrowser && process.env.NODE_ENV === 'development' ? composeWithDevTools({}) : compose;
+  const composeEnhancers = process.env.NODE_ENV === 'development' ? composeWithDevTools({}) : compose;
 
-  // eslint-disable-next-line no-underscore-dangle
-  const initialAppState: IAppReduxState | undefined = isBrowser ? window.__data : undefined;
-
-  const store: Store<IAppReduxState> = initialAppState
-    ? (
-      createStore(
-        (state: IAppReduxState) => state,
-        initialAppState,
-        composeEnhancers(applyMiddleware(...middlewares)),
-      )
-    ) : (
-      createStore(
-        (state: IAppReduxState) => state,
-        composeEnhancers(applyMiddleware(...middlewares)),
-      )
+  const store: Store<IAppReduxState> =
+    createStore(
+      (state: IAppReduxState) => state,
+      composeEnhancers(applyMiddleware(...middlewares)),
     );
 
   return {
