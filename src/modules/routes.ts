@@ -1,5 +1,5 @@
-import { routes as profileRoutes } from './Profile/routes';
+import { routes as guideRoutes } from './Guide/routes';
 
 export const routes = {
-  ...profileRoutes,
+  ...guideRoutes,
 };

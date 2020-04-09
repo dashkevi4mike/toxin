@@ -1,10 +1,8 @@
 import React from 'react';
 import block from 'bem-cn';
 import { autobind } from 'core-decorators';
-import { Link } from 'react-router-dom';
 
 import { MenuIcon } from 'shared/view/elements';
-import { ClickAwayListener } from 'shared/view/components';
 
 import './LayoutHeaderMenu.scss';
 
@@ -31,7 +29,6 @@ class LayoutHeaderMenu extends React.PureComponent<IProps, IState> {
   };
 
   public render() {
-    const { menuItems } = this.props;
     const { isMenuOpen } = this.state;
     return (
       <div className={b()}>
@@ -45,27 +42,7 @@ class LayoutHeaderMenu extends React.PureComponent<IProps, IState> {
         >
           <MenuIcon />
         </div>
-        <span className={b('title')}>search for</span>
-        <ClickAwayListener
-          onClickAway={this.handleMenuItemsClickAway}
-          mouseEvent="onClick"
-          touchEvent="onTouchEnd"
-        >
-          <div className={b('menu-items')}>
-            {menuItems.map(this.renderMenuItem)}
-          </div>
-        </ClickAwayListener>
       </div>
-    );
-  }
-
-  @autobind
-  private renderMenuItem({ path, title }: IMenuItem, i: number) {
-    const { activeItemPath } = this.props;
-    return (
-      <Link to={path} className={b('menu-item', { active: path === activeItemPath })} key={i}>
-        {title}
-      </Link>
     );
   }
 
@@ -91,10 +68,6 @@ class LayoutHeaderMenu extends React.PureComponent<IProps, IState> {
     this.toggleMenu(e);
   }
 
-  @autobind
-  private handleMenuItemsClickAway() {
-    this.setState({ isMenuOpen: false });
-  }
 }
 
 export {

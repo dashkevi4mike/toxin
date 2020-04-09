@@ -5,7 +5,6 @@ import { autobind } from 'core-decorators';
 
 import { IAppReduxState } from 'shared/types/app';
 import { IProfile } from 'shared/types/models';
-import { Popover } from 'shared/view/components';
 
 import { ProfileAvatar } from '../../components';
 import { selectors } from '../../../redux';
@@ -41,8 +40,7 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
   private blockRef = createRef<HTMLDivElement>();
 
   public render() {
-    const { profile: { avatarURL, name, nickname, bio }, onEditClick } = this.props;
-    const { isOpen } = this.state;
+    const { profile: { avatarURL } } = this.props;
     return (
       <div className={b()} ref={this.blockRef}>
         <div
@@ -54,54 +52,8 @@ class ProfilePreviewComponent extends React.PureComponent<IProps, IState> {
         >
           <ProfileAvatar avatarURL={avatarURL} size="small" />
         </div>
-        <Popover
-          open={isOpen}
-          onClose={this.handlePopoverClose}
-          anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-          anchorEl={this.blockRef.current}
-        >
-          <div className={b('info')}>
-            <div className={b('main-info')}>
-              <div className={b('name')}>
-                {name}
-              </div>
-              <div className={b('nickname-age')}>
-                <div className={b('nickname')}>
-                  {nickname}
-                </div>
-                <div className={b('age')}>
-                </div>
-              </div>
-            </div>
-            <div className={b('bio')}>
-              {bio}
-            </div>
-            <div
-              tabIndex={0}
-              role="button"
-              className={b('edit')}
-              onClick={onEditClick}
-              onKeyPress={this.handleEditButtonKeyPress}
-            >
-            </div>
-          </div>
-        </Popover>
       </div>
     );
-  }
-
-  @autobind
-  private handlePopoverClose() {
-    this.setState({ isOpen: false });
-  }
-
-  @autobind
-  private handleEditButtonKeyPress(e: React.KeyboardEvent<HTMLDivElement>) {
-    const { onEditClick } = this.props;
-
-    if (e.key === 'Enter') {
-      onEditClick();
-    }
   }
 
   @autobind

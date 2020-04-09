@@ -4,18 +4,18 @@ import { Route } from 'react-router-dom';
 import { routes } from 'modules/routes';
 import { IModule } from 'shared/types/app';
 
-import { ProfileLayout } from './view/components';
+import { GuideLayout } from './view/components';
 
-const Profile: IModule = {
+const Guide: IModule = {
   getRoutes() {
     return (
       <Route
-        key={routes.profile.getElementKey()}
-        path={routes.profile.getRoutePath()}
-        component={ProfileLayout}
+        key={routes.guide.getElementKey()}
+        path={routes.guide.getRoutePath()}
+        component={GuideLayout}
       />
     );
   },
 };
 
-export { Profile };
+export { Guide };
