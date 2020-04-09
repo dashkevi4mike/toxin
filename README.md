@@ -1,5 +1,5 @@
 # Toxin
-Modular starter kit for React+Redux+React Router projects.
+Demo project for booking rooms with using React+Redux+Typescript.
 
 ## NPM scripts
 ### To start locally
@@ -23,15 +23,13 @@ Modular starter kit for React+Redux+React Router projects.
 - [x] Test coverage
 - [x] Hot reload
 
-## Тестирование
+## Tests
 
-Тесты используют фреймворк [Jest](http://facebook.github.io/jest/)
+Tests uses Jest framework [Jest](http://facebook.github.io/jest/)
 
-### Запуск
-
-* `npm test` или `npm t` - разовый прогон тестов
-* `npm run test:watch` - запуск тестов в watch-режиме
-* `npm run test:debug` - запуск с возможностью подключения для отладки
+* `npm test` или `npm t` - to run tests only at once
+* `npm run test:watch` - to run test with watching mode
+* `npm run test:debug` - to run test with debugging
 (
   [Chrome](http://facebook.github.io/jest/docs/en/troubleshooting.html#content) /
   [VSCode](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-vs-code) /
