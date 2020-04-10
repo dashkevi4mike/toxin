@@ -1,0 +1,15 @@
+.elements-layout {
+  width: 100%;
+  background-color: #ffff;
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-around;
+  }
+}
