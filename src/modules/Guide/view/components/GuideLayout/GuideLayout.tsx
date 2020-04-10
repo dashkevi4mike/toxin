@@ -1,9 +1,11 @@
 import React from 'react';
 import block from 'bem-cn';
 
-import { Colors } from 'shared/view/components';
+import { Colors, Headlines } from 'shared/view/components';
 
 import { Layout } from '../../../../shared';
+
+import { colors, headlines } from './data';
 import './GuideLayout.scss';
 
 type IProps = {};
@@ -15,7 +17,12 @@ function GuideLayoutComponent(_props: IProps) {
   return (
     <Layout>
       <div className={b()}>
-        <Colors />
+        <div className={b('inner')}>
+          <div className={b('row')}>
+            <Colors colors={colors} />
+            <Headlines headlines={headlines} />
+          </div>
+        </div>
       </div>
     </Layout>
   );

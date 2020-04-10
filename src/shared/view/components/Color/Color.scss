@@ -1,14 +1,19 @@
+@import '~shared/styles/mixins';
+
 .color {
   display: flex;
 
   &__name {
     display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+    margin: 0 0 10px;
+
+    @include font('h2');
   }
 
   &__hex {
-    display: block;
+    margin: 0;
+
+    @include font('p');
   }
 
   &__preview {
@@ -23,6 +28,5 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 40px;
-    font-size: 19px;
   }
 }

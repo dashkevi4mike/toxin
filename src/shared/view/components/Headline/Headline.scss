@@ -1,0 +1,23 @@
+@import '~shared/styles/mixins';
+
+.headline {
+  &__text {
+    margin-bottom: 55px;
+
+    &_type_h1 {
+      @include font('h1');
+    }
+
+    &_type_h2 {
+      @include font('h2');
+    }
+
+    &_type_h3 {
+      @include font('h3');
+    }
+
+    &_type_p {
+      @include font('p');
+    }
+  }
+}

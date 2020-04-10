@@ -1,4 +1,4 @@
-import { ColorType } from 'shared/types/models';
+import { ColorType, HeadlineType } from 'shared/types/models';
 
 export const colors: ColorType[] = [
   {
@@ -37,3 +37,22 @@ export const colors: ColorType[] = [
     opacity: 1
   },
 ];
+
+export const headlines: HeadlineType[] = [
+  {
+    type: 'h1',
+    text: 'This one is the sub-section or widget title',
+  },
+  {
+    type: 'h2',
+    text: 'Next one is the item title inside widgets',
+  },
+  {
+    type: 'h3',
+    text: 'This is a label or CTA text',
+  },
+  {
+    type: 'p',
+    text: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.',
+  }
+]
