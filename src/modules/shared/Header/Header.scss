@@ -1,0 +1,33 @@
+@import '~shared/styles/mixins';
+
+.header {
+  display: block;
+  height: 70px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include font('p');
+
+    &:hover {
+      font-weight: bold;
+    }
+
+    &_state_active {
+      font-weight: bold;
+    }
+  }
+}

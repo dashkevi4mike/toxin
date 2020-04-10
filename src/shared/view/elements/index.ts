@@ -1,13 +1,2 @@
-export * from './Icons';
-export { Typography } from './Typography/Typography';
 export { Button } from './Button/Button';
-export { IconButton } from './IconButton/IconButton';
-export { RadioGroupInput } from './RadioGroupInput/RadioGroupInput';
-export { FormControlLabel } from './FormControlLabel/FormControlLabel';
-export { Radio } from './Radio/Radio';
-export { MenuItem } from './MenuItem/MenuItem';
-export { Checkbox } from './Checkbox/Checkbox';
-export { CheckboxInput } from './CheckboxInput/CheckboxInput';
-export { Select } from './Select/Select';
-export { FormLabel } from './FormLabel/FormLabel';
-export { Link } from './Link/Link';
+export { Logo } from './Logo/Logo';
