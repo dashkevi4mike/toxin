@@ -1,3 +1,10 @@
+@import '~shared/styles/mixins';
+
 .colors {
   display: block;
+
+  &__color {
+    display: flex;
+    margin-bottom: 20px;
+  }
 }

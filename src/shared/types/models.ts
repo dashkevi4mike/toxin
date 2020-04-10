@@ -33,3 +33,6 @@ export interface IDetailedGithubUser extends IGithubUser {
   realName: string;
   location: null | string;
 }
+
+
+export type ColorType = { name: string; hex: string; opacity: number; }

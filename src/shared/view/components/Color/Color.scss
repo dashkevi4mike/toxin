@@ -1,0 +1,28 @@
+.color {
+  display: flex;
+
+  &__name {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &__hex {
+    display: block;
+  }
+
+  &__preview {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    font-size: 19px;
+  }
+}

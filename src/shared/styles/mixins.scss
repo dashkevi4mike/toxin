@@ -40,3 +40,10 @@
     }
   }
 }
+
+@mixin color($name) {
+  $colorObj: map-get($available-colors, $name);
+
+  color: map-get($colorObj, 'color');
+  opacity: map-get($colorObj, 'opacity');
+}

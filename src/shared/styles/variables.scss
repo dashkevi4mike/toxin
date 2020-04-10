@@ -3,3 +3,33 @@ $available-breakpoints: (
   sm: 590px,
   md: 960px,
 );
+$available-colors: (
+  darkShade100: (
+    color: #1f2041,
+    opacity: 1,
+  ),
+  darkShade75: (
+    color: #1f2041,
+    opacity: 0.75,
+  ),
+  darkShade50: (
+    color: #1f2041,
+    opacity: 0.5,
+  ),
+  darkShade25: (
+    color: #1f2041,
+    opacity: 0.25,
+  ),
+  darkShade5: (
+    color: #1f2041,
+    opacity: 0.05,
+  ),
+  purple100: (
+    color: #bc9cff,
+    opacity: 1,
+  ),
+  green100: (
+    color: #6fcf97,
+    opacity: 1,
+  )
+);
