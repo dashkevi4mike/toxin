@@ -10,13 +10,13 @@ import { Submenu } from '../Submenu/Submenu';
 
 import './Header.scss';
 
-type IOwnProps = { links: LinkType[]; };
+type OwnProps = { links: LinkType[]; };
 
-type IProps = IOwnProps & RouteComponentProps;
+type Props = OwnProps & RouteComponentProps;
 
 const b = block('header');
 
-class HeaderComponent extends React.Component<IProps> {
+class HeaderComponent extends React.Component<Props> {
   public render() {
     const { links, history } = this.props;
 
@@ -28,9 +28,10 @@ class HeaderComponent extends React.Component<IProps> {
           </div>
           <nav className={b('navigation')}>
             {links.map((link: LinkType)=> {
+        
               return (
                 <Link 
-                  className={b('link', {state: history.location.pathname === link.href ? 'active': 'inactive' })}
+                  className={b('link', {state: history.location.pathname.indexOf(link.href) !== -1 ? 'active': 'inactive' })}
                   to={link.href}
                   key={link.title}
                 >
@@ -54,4 +55,4 @@ class HeaderComponent extends React.Component<IProps> {
 
 const wrappedComponent = withRouter(HeaderComponent);
 
-export { wrappedComponent as Header, HeaderComponent, IProps as ILayoutProps };
+export { wrappedComponent as Header, HeaderComponent, Props };

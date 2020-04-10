@@ -14,14 +14,14 @@ type Props = {};
 const b = block('colors-and-headlines-layout');
 
 const links = [
-  { title: 'Home', href: '' },
+  { title: 'Home', href: '404' },
   { title: 'Guide', href: routes.guide.getRedirectPath(), links: [
     { title: 'Colors & Headlines', href: routes.guide["colors-and-headlines"].getRedirectPath() },
     { title: 'Elements', href: routes.guide.elements.getRedirectPath() },
     { title: 'Components', href: routes.guide.components.getRedirectPath() }
   ]},
-  { title: 'Careers', href: '' },
-  { title: 'News', href: '' },
+  { title: 'Careers', href: '404' },
+  { title: 'News', href: '404' },
 ]
 
 function ColorsAndHeadlinesLayoutComponent(_props: Props) {

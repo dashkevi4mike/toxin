@@ -20,6 +20,8 @@
 
     &_state_active {
       font-weight: bold;
+
+      @include color('darkShade100');
     }
   }
 }
