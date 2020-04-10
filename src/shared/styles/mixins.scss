@@ -54,4 +54,5 @@
   color: #1f2041;
   font-weight: map-get($fontObj, 'weight');
   font-size: map-get($fontObj, 'size');
+  font-family: map-get($fontObj, 'family');
 }

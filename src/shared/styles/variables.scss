@@ -36,19 +36,22 @@ $available-colors: (
 $available-fonts: (
   h1: (
     size: 24px,
-    weight: bold,
+    weight: 600,
+    family: Quicksand,
   ),
   h2: (
     size: 19px,
-    weight: bold,
+    weight: 600,
+    family: Quicksand,
   ),
   h3: (
     size: 12px,
-    weight: bold,
+    weight: 600,
+    family: Montserrat,
   ),
   p: (
     size: 14px,
-    weight: normal
+    weight: 400,
+    family: Montserrat,
   )
-)
-
+);

@@ -1,0 +1,4 @@
+@import '../fontFace';
+
+@include font-face(Montserrat, Montserrat-Regular, 400, null, ttf);
+@include font-face(Montserrat, Montserrat-Bold, 600, null, ttf);
