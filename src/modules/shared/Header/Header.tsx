@@ -6,6 +6,8 @@ import { Link as LinkType } from 'shared/types/models';
 
 import { Logo } from 'shared/view/elements';
 
+import { Submenu } from '../Submenu/Submenu';
+
 import './Header.scss';
 
 type IOwnProps = { links: LinkType[]; };
@@ -32,7 +34,13 @@ class HeaderComponent extends React.Component<IProps> {
                   to={link.href}
                   key={link.title}
                 >
-                  {link.title}
+                  {link.title} 
+                  {link.links && <img className={b('expand')} src={require('./imgs/expand_more.svg')}/>}
+                  {link.links && (
+                    <div className={b('submenu')}>
+                      <Submenu links={link.links} />
+                    </div>
+                  )}
                 </Link>
               );
             })}
