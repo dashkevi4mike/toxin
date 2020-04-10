@@ -1,5 +1,5 @@
 import React from 'react';
-import 'shared/styles/global.scss';
+import 'shared/styles';
 
 const App: React.FC = ({ children }) => <>{children}</>;
 
