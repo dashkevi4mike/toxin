@@ -13,14 +13,10 @@
     @include color('darkShade50');
 
     &:hover {
-      font-weight: bold;
-
       @include color('darkShade100');
     }
 
     &_state_active {
-      font-weight: bold;
-
       @include color('darkShade100');
     }
   }

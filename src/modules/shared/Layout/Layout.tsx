@@ -2,20 +2,21 @@ import React from 'react';
 import block from 'bem-cn';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import { Link } from 'shared/types/models';
+import { Link, FooterLinksGroup } from 'shared/types/models';
 
 import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 
 import './Layout.scss';
 
-type IOwnProps = { headerLinks: Link[]; };
+type IOwnProps = { headerLinks: Link[]; footerLinks: FooterLinksGroup[] };
 type IProps = IOwnProps & RouteComponentProps;
 
 const b = block('layout');
 
 class LayoutComponent extends React.Component<IProps> {
   public render() {
-    const { children, headerLinks } = this.props;
+    const { children, headerLinks, footerLinks } = this.props;
 
     return (
       <div className={b()}>
@@ -25,10 +26,9 @@ class LayoutComponent extends React.Component<IProps> {
         <div className={b('content')}>
           {children}
         </div>
-        <footer className={b('footer')}>
-          <div className={b('footer-content')}>
-          </div>
-        </footer>
+        <div className={b('footer')}>
+          <Footer links={footerLinks}/>
+        </div>
       </div>
     );
   }

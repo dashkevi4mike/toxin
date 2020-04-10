@@ -11,7 +11,7 @@ type Props = {};
 
 const b = block('elements-layout');
 
-const links = [
+const headerLinks = [
   { title: 'Home', href: '' },
   { title: 'Guide', href: routes.guide.getRedirectPath(), links: [
     { title: 'Colors & Headlines', href: routes.guide["colors-and-headlines"].getRedirectPath() },
@@ -20,12 +20,32 @@ const links = [
   ]},
   { title: 'Careers', href: '' },
   { title: 'News', href: '' },
-]
+];
+
+const footerLinks = [
+  { title: 'Navigation', links: [
+    { title: 'About Us', href: '404' },
+    { title: 'News', href: '404' },
+    { title: 'Support', href: '404' },
+    { title: 'Products', href: '404' },
+  ]},
+  { title: 'About Us', links: [
+    { title: 'Who we are', href: '404' },
+    { title: 'Our team', href: '404' },
+    { title: 'Careers', href: '404' },
+    { title: 'Investors', href: '404' },
+  ]},
+  { title: 'Support', links: [
+    { title: 'Documentation', href: '404' },
+    { title: 'Community', href: '404' },
+    { title: 'Get in Touch', href: '404' },
+  ]}
+];
 
 function ElementsLayoutComponent(_props: Props) {
 
   return (
-    <Layout headerLinks={links}>
+    <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
           <div className={b('row')}>

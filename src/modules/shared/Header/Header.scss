@@ -37,8 +37,6 @@
     @include color('darkShade50');
 
     &:hover {
-      font-weight: bold;
-
       @include color('darkShade100');
 
       .header__expand {
@@ -51,8 +49,6 @@
     }
 
     &_state_active {
-      font-weight: bold;
-
       @include color('darkShade100');
     }
   }
