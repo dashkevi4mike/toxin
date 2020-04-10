@@ -36,3 +36,4 @@ export interface IDetailedGithubUser extends IGithubUser {
 
 
 export type ColorType = { name: string; hex: string; opacity: number; }
+export type HeadlineType = { type: string; text: string; }

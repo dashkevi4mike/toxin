@@ -1,0 +1,10 @@
+@import '~shared/styles/mixins';
+
+.headlines {
+  display: block;
+
+  &__headline {
+    display: flex;
+    margin-bottom: 20px;
+  }
+}

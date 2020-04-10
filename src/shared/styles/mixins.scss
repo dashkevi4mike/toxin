@@ -47,3 +47,11 @@
   color: map-get($colorObj, 'color');
   opacity: map-get($colorObj, 'opacity');
 }
+
+@mixin font($type) {
+  $fontObj: map-get($available-fonts, $type);
+
+  color: #1f2041;
+  font-weight: map-get($fontObj, 'weight');
+  font-size: map-get($fontObj, 'size');
+}
