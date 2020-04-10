@@ -19,4 +19,4 @@ function Color ({ hex, name, opacity }: ColorType) {
 	);
 }
   
-  export { Color };
+export { Color };
