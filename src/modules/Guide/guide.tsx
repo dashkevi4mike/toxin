@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { routes } from 'modules/routes';
 import { IModule } from 'shared/types/app';
@@ -12,7 +12,6 @@ const Guide: IModule = {
       <Route
         key={routes.guide.getElementKey()}
         path={routes.guide.getRoutePath()}
-        component={ColorsAndHeadlinesLayout}
       >
         <Switch>
           <Route
@@ -30,6 +29,7 @@ const Guide: IModule = {
             path={routes.guide.components.getRoutePath()}
             component={ComponentsLayout}
           />
+          <Redirect to={routes.guide["colors-and-headlines"].getRoutePath()} />
         </Switch>
       </Route>
     );

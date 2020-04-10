@@ -1,0 +1,27 @@
+@import '~shared/styles/mixins';
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    margin: 15px;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include font('p');
+    @include color('darkShade50');
+
+    &:hover {
+      font-weight: bold;
+
+      @include color('darkShade100');
+    }
+
+    &_state_active {
+      font-weight: bold;
+
+      @include color('darkShade100');
+    }
+  }
+}

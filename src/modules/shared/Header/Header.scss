@@ -14,20 +14,46 @@
     height: 100%;
   }
 
+  &__expand {
+    margin-left: 5px;
+    transition: transform 0.5s;
+  }
+
+  &__submenu {
+    position: absolute;
+    display: none;
+    padding-top: 20px;
+    width: 200px;
+    background-color: #ffff;
+  }
+
   &__link {
-    display: inline-block;
+    position: relative;
     margin: 0 15px;
     text-decoration: none;
     cursor: pointer;
 
     @include font('p');
+    @include color('darkShade50');
 
     &:hover {
       font-weight: bold;
+
+      @include color('darkShade100');
+
+      .header__expand {
+        transform: rotate(180deg);
+      }
+
+      .header__submenu {
+        display: block;
+      }
     }
 
     &_state_active {
       font-weight: bold;
+
+      @include color('darkShade100');
     }
   }
 }

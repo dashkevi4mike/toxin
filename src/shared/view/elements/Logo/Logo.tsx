@@ -5,7 +5,6 @@ import './Logo.scss';
 
 const b = block('logo');
 
-
 function Logo() {
   return (
     <img className={b()} src={require('./imgs/Logo.svg')} />   
