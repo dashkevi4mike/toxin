@@ -2,33 +2,41 @@ import React from 'react';
 import block from 'bem-cn';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import { Link } from 'shared/types/models';
+import { Link, FooterLinksGroup } from 'shared/types/models';
 
+import { Divider } from 'shared/view/elements';
 import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
+
 
 import './Layout.scss';
 
-type IOwnProps = { headerLinks: Link[]; };
+type IOwnProps = { headerLinks: Link[]; footerLinks: FooterLinksGroup[] };
 type IProps = IOwnProps & RouteComponentProps;
 
 const b = block('layout');
 
 class LayoutComponent extends React.Component<IProps> {
   public render() {
-    const { children, headerLinks } = this.props;
+    const { children, headerLinks, footerLinks } = this.props;
 
     return (
       <div className={b()}>
         <div className={b('header')}>
           <Header links={headerLinks} />
         </div>
+
+        <Divider />
+
         <div className={b('content')}>
           {children}
         </div>
-        <footer className={b('footer')}>
-          <div className={b('footer-content')}>
-          </div>
-        </footer>
+
+        <Divider />
+
+        <div className={b('footer')}>
+          <Footer links={footerLinks}/>
+        </div>
       </div>
     );
   }

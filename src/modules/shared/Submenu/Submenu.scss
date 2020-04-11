@@ -10,18 +10,14 @@
     cursor: pointer;
 
     @include font('p');
-    @include color('darkShade50');
+    @include color('color', 'darkShade50');
 
     &:hover {
-      font-weight: bold;
-
-      @include color('darkShade100');
+      @include color('color', 'darkShade100');
     }
 
     &_state_active {
-      font-weight: bold;
-
-      @include color('darkShade100');
+      @include color('color', 'darkShade100');
     }
   }
 }
