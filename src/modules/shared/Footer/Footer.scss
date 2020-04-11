@@ -38,14 +38,14 @@
   }
 
   &__group-title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     @include font('h3');
     @include color('color', 'darkShade100');
   }
 
   &__link {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-decoration: none;
     cursor: pointer;
 

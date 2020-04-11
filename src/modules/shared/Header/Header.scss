@@ -21,11 +21,15 @@
 
   &__submenu {
     position: absolute;
+    top: 0;
     z-index: 1;
     display: none;
-    padding-top: 20px;
+    padding-top: 40px;
     width: 200px;
-    background-color: #ffff;
+
+    &:hover {
+      display: block;
+    }
   }
 
   &__link {

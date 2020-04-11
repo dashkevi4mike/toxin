@@ -38,20 +38,24 @@ $available-fonts: (
     size: 24px,
     weight: 600,
     family: Quicksand,
+    lineHeight: auto,
   ),
   h2: (
     size: 19px,
     weight: 600,
     family: Quicksand,
+    lineHeight: auto,
   ),
   h3: (
     size: 12px,
     weight: 600,
     family: Montserrat,
+    lineHeight: 20px,
   ),
   p: (
     size: 14px,
     weight: 400,
     family: Montserrat,
+    lineHeight: 24px,
   )
 );

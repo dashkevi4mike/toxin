@@ -1,0 +1,25 @@
+@import '~shared/styles/mixins';
+
+.page-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 560px;
+    width: 80%;
+    height: 100%;
+  }
+
+  &__message {
+    margin: 26px 0;
+    text-align: center;
+
+    @include font('p');
+  }
+}

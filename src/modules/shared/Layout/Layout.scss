@@ -1,10 +1,21 @@
 @import '~shared/styles/mixins';
 
 .layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 100px 0;
+    flex: 1 0 auto;
+    margin: 50px 0;
+    height: 100%;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+
+  &__header {
+    flex: 0 0 auto;
   }
 }

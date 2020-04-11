@@ -6,6 +6,8 @@ import { IModule } from 'shared/types/app';
 
 import { ColorsAndHeadlinesLayout, ComponentsLayout, ElementsLayout } from './view/components';
 
+import { PageNotFound } from 'modules/shared/PageNotFound/PageNotFound';
+
 const Guide: IModule = {
   getRoutes() {
     return (
@@ -27,7 +29,7 @@ const Guide: IModule = {
           <Route
             key={routes.guide.components.getElementKey()}
             path={routes.guide.components.getRoutePath()}
-            component={ComponentsLayout}
+            component={PageNotFound}
           />
           <Redirect to={routes.guide["colors-and-headlines"].getRoutePath()} />
         </Switch>
