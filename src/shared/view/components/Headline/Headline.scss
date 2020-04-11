@@ -4,6 +4,10 @@
   &__text {
     margin-bottom: 55px;
 
+    @include breakpoint-down('md') {
+      margin-bottom: 30px;
+    }
+
     &_type_h1 {
       @include font('h1');
     }

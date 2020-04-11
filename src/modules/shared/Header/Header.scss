@@ -10,13 +10,19 @@
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
-    width: 100%;
+    width: 90%;
     height: 100%;
   }
 
   &__expand {
     margin-left: 5px;
     transition: transform 0.5s;
+  }
+
+  &__navigation {
+    @include breakpoint-down('sm') {
+      display: none;
+    }
   }
 
   &__submenu {
