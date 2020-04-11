@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { routes } from 'modules/routes';
 import { IModule } from 'shared/types/app';
@@ -29,9 +29,11 @@ const Guide: IModule = {
           <Route
             key={routes.guide.components.getElementKey()}
             path={routes.guide.components.getRoutePath()}
-            component={PageNotFound}
+            component={ComponentsLayout}
           />
-          <Redirect to={routes.guide["colors-and-headlines"].getRoutePath()} />
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
       </Route>
     );

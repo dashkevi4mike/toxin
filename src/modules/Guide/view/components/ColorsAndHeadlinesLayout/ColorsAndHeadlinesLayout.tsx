@@ -15,7 +15,7 @@ const b = block('colors-and-headlines-layout');
 
 const headerLinks = [
   { title: 'Home', href: '404' },
-  { title: 'Guide', href: routes.guide.getRedirectPath(), links: [
+  { title: 'Guide', href: routes.guide["colors-and-headlines"].getRedirectPath(), links: [
     { title: 'Colors & Headlines', href: routes.guide["colors-and-headlines"].getRedirectPath() },
     { title: 'Elements', href: routes.guide.elements.getRedirectPath() },
     { title: 'Components', href: routes.guide.components.getRedirectPath() }
