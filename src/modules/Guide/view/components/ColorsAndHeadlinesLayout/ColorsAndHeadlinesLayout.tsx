@@ -25,23 +25,35 @@ const headerLinks = [
 ]
 
 const footerLinks = [
-  { title: 'Navigation', links: [
-    { title: 'About Us', href: '404' },
-    { title: 'News', href: '404' },
-    { title: 'Support', href: '404' },
-    { title: 'Products', href: '404' },
-  ]},
-  { title: 'About Us', links: [
-    { title: 'Who we are', href: '404' },
-    { title: 'Our team', href: '404' },
-    { title: 'Careers', href: '404' },
-    { title: 'Investors', href: '404' },
-  ]},
-  { title: 'Support', links: [
-    { title: 'Documentation', href: '404' },
-    { title: 'Community', href: '404' },
-    { title: 'Get in Touch', href: '404' },
-  ]}
+  { 
+    title: 'Navigation', 
+    mobileInvisible: true,
+    links: [
+      { title: 'About Us', href: '404' },
+      { title: 'News', href: '404' },
+      { title: 'Support', href: '404' },
+      { title: 'Products', href: '404' },
+    ]
+  },
+  { 
+    title: 'About Us',
+    mobileInvisible: false,
+    links: [
+      { title: 'Who we are', href: '404' },
+      { title: 'Our team', href: '404' },
+      { title: 'Careers', href: '404' },
+      { title: 'Investors', href: '404' },
+    ]
+  },
+  { 
+    title: 'Support',
+    mobileInvisible: false,
+    links: [
+      { title: 'Documentation', href: '404' },
+      { title: 'Community', href: '404' },
+      { title: 'Get in Touch', href: '404' },
+    ]
+  }
 ];
 
 function ColorsAndHeadlinesLayoutComponent(_props: Props) {
@@ -50,8 +62,10 @@ function ColorsAndHeadlinesLayoutComponent(_props: Props) {
     <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
-          <div className={b('row')}>
+          <div className={b('column')}>
             <Colors colors={colors} />
+          </div>
+          <div className={b('column')}>
             <Headlines headlines={headlines} />
           </div>
         </div>

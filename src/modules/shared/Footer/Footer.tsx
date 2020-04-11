@@ -30,7 +30,7 @@ class FooterComponent extends React.Component<Props> {
           <nav className={b('navigation')}>
             {links.map((group: FooterLinksGroup)=> {
               return (
-                <div className={b('links-group')}>
+                <div className={b('links-group', {'mobile-invisible': group.mobileInvisible })}>
                   <h3 className={b('group-title')}>{group.title}</h3>
                   {group.links.map((link: LinkType)=> {
                     return (
