@@ -3,9 +3,10 @@
 .submenu {
   display: flex;
   flex-direction: column;
+  background-color: #ffff;
 
   &__link {
-    margin: 15px;
+    margin: 10px;
     text-decoration: none;
     cursor: pointer;
 

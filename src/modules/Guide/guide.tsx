@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { routes } from 'modules/routes';
 import { IModule } from 'shared/types/app';
 
 import { ColorsAndHeadlinesLayout, ComponentsLayout, ElementsLayout } from './view/components';
+
+import { PageNotFound } from 'modules/shared/PageNotFound/PageNotFound';
 
 const Guide: IModule = {
   getRoutes() {
@@ -29,7 +31,9 @@ const Guide: IModule = {
             path={routes.guide.components.getRoutePath()}
             component={ComponentsLayout}
           />
-          <Redirect to={routes.guide["colors-and-headlines"].getRoutePath()} />
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
       </Route>
     );

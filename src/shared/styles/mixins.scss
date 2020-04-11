@@ -61,4 +61,5 @@
   font-weight: map-get($fontObj, 'weight');
   font-size: map-get($fontObj, 'size');
   font-family: map-get($fontObj, 'family');
+  line-height: map-get($fontObj, 'lineHeight');
 }

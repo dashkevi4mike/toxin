@@ -1,6 +1,7 @@
 @import '~shared/styles/mixins';
 
 .divider {
+  margin: 0;
   height: 1px;
 
   @include color('backgroundColor', 'darkShade5');

@@ -1,19 +1,21 @@
 import React from 'react';
 import block from 'bem-cn';
 
-import { Layout } from '../../../../shared';
+import { Layout } from '../Layout/Layout';
+
+import { Logo, SocialLinks } from 'shared/view/elements';
 
 import { routes } from 'modules/routes';
 
-import './ElementsLayout.scss';
+import './PageNotFound.scss';
 
 type Props = {};
 
-const b = block('elements-layout');
+const b = block('page-not-found');
 
 const headerLinks = [
   { title: 'Home', href: '' },
-  { title: 'Guide', href: routes.guide["colors-and-headlines"].getRedirectPath(), links: [
+  { title: 'Guide', href: routes.guide.getRedirectPath(), links: [
     { title: 'Colors & Headlines', href: routes.guide["colors-and-headlines"].getRedirectPath() },
     { title: 'Elements', href: routes.guide.elements.getRedirectPath() },
     { title: 'Components', href: routes.guide.components.getRedirectPath() }
@@ -42,14 +44,17 @@ const footerLinks = [
   ]}
 ];
 
-function ElementsLayoutComponent(_props: Props) {
+function PageNotFound(_props: Props) {
 
   return (
     <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
-          <div className={b('row')}>
-          </div>
+          <Logo />
+          <p className={b('message')}>
+            Sorry, page not found. Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+          </p>
+          <SocialLinks />
         </div>
       </div>
     </Layout>
@@ -57,4 +62,4 @@ function ElementsLayoutComponent(_props: Props) {
 }
 ;
 
-export { ElementsLayoutComponent as ElementsLayout, Props as ElementsLayoutProps };
+export { PageNotFound, Props };
