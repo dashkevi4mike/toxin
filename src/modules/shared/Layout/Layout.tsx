@@ -4,8 +4,10 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { Link, FooterLinksGroup } from 'shared/types/models';
 
+import { Divider } from 'shared/view/elements';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
+
 
 import './Layout.scss';
 
@@ -23,9 +25,15 @@ class LayoutComponent extends React.Component<IProps> {
         <div className={b('header')}>
           <Header links={headerLinks} />
         </div>
+
+        <Divider />
+
         <div className={b('content')}>
           {children}
         </div>
+
+        <Divider />
+
         <div className={b('footer')}>
           <Footer links={footerLinks}/>
         </div>

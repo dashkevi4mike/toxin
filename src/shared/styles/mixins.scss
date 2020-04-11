@@ -41,10 +41,17 @@
   }
 }
 
-@mixin color($name) {
+@mixin color($property, $name) {
   $colorObj: map-get($available-colors, $name);
 
-  color: map-get($colorObj, 'color');
+  @if ($property == 'color') {
+    color: map-get($colorObj, 'color');
+  }
+
+  @if ($property == 'backgroundColor') {
+    background-color: map-get($colorObj, 'color');
+  }
+
   opacity: map-get($colorObj, 'opacity');
 }
 

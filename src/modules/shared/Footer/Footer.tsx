@@ -4,7 +4,7 @@ import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 
 import { FooterLinksGroup, Link as LinkType } from 'shared/types/models';
 
-import { Logo } from 'shared/view/elements';
+import { Logo, SocialLinks, Divider } from 'shared/view/elements';
 
 import './Footer.scss';
 
@@ -46,6 +46,15 @@ class FooterComponent extends React.Component<Props> {
               <Logo />
             </div>
             <p className={b('description')}>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</p>
+          </div>
+        </div>
+
+        <Divider />
+
+        <div className={b('bottom')}>
+          <div className={b('bottom-inner')}>
+            <p className={b('copyright')}>Project only for portfolio purposes.</p>
+            <SocialLinks />
           </div>
         </div>
       </footer>

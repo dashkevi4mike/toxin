@@ -2,11 +2,11 @@
 
 .footer {
   display: block;
-  padding: 105px 0 0;
+  padding: 55px 0 0;
 
   &__inner {
     display: flex;
-    justify-content: stretch;
+    flex-wrap: wrap;
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
@@ -18,7 +18,7 @@
     line-height: 24px;
 
     @include font('p');
-    @include color('darkShade75');
+    @include color('color', 'darkShade75');
   }
 
   &__aside {
@@ -41,7 +41,7 @@
     margin-bottom: 30px;
 
     @include font('h3');
-    @include color('darkShade100');
+    @include color('color', 'darkShade100');
   }
 
   &__link {
@@ -50,10 +50,30 @@
     cursor: pointer;
 
     @include font('p');
-    @include color('darkShade50');
+    @include color('color', 'darkShade50');
 
     &:hover {
-      @include color('darkShade100');
+      @include color('color', 'darkShade100');
     }
+  }
+
+  &__bottom {
+    width: 100%;
+    height: 70px;
+  }
+
+  &__bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__copyright {
+    @include font('p');
+    @include color('color', 'darkShade75');
   }
 }

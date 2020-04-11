@@ -21,6 +21,7 @@
 
   &__submenu {
     position: absolute;
+    z-index: 1;
     display: none;
     padding-top: 20px;
     width: 200px;
@@ -34,10 +35,10 @@
     cursor: pointer;
 
     @include font('p');
-    @include color('darkShade50');
+    @include color('color', 'darkShade50');
 
     &:hover {
-      @include color('darkShade100');
+      @include color('color', 'darkShade100');
 
       .header__expand {
         transform: rotate(180deg);
@@ -49,7 +50,7 @@
     }
 
     &_state_active {
-      @include color('darkShade100');
+      @include color('color', 'darkShade100');
     }
   }
 }
