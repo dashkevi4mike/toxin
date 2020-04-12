@@ -4,34 +4,14 @@ $available-breakpoints: (
   md: 960px,
 );
 $available-colors: (
-  darkShade100: (
-    color: #1f2041,
-    opacity: 1,
-  ),
-  darkShade75: (
-    color: #1f2041,
-    opacity: 0.75,
-  ),
-  darkShade50: (
-    color: #1f2041,
-    opacity: 0.5,
-  ),
-  darkShade25: (
-    color: #1f2041,
-    opacity: 0.25,
-  ),
-  darkShade5: (
-    color: #1f2041,
-    opacity: 0.05,
-  ),
-  purple100: (
-    color: #bc9cff,
-    opacity: 1,
-  ),
-  green100: (
-    color: #6fcf97,
-    opacity: 1,
-  )
+  darkShade100: rgba(31, 32, 65, 1),
+  darkShade75: rgba(31, 32, 65, 0.75),
+  darkShade50: rgba(31, 32, 65, 0.5),
+  darkShade25: rgba(31, 32, 65, 0.25),
+  darkShade5: rgba(31, 32, 65, 0.05),
+  purple100: #bc9cff,
+  green100: #6fcf97,
+  red100: rgba(226, 0, 0, 1),
 );
 $available-fonts: (
   h1: (

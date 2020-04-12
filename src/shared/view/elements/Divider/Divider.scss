@@ -2,7 +2,8 @@
 
 .divider {
   margin: 0;
-  height: 1px;
+  height: 2px;
+  border: none;
 
   @include color('backgroundColor', 'darkShade5');
 }

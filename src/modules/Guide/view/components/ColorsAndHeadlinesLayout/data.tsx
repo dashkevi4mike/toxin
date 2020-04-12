@@ -36,6 +36,11 @@ export const colors: ColorType[] = [
     hex: '#6FCF97',
     opacity: 1
   },
+  {
+    name: 'Red',
+    hex: '#E20000',
+    opacity: 1
+  },
 ];
 
 export const headlines: HeadlineType[] = [
