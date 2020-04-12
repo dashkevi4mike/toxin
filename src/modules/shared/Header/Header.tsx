@@ -28,7 +28,6 @@ class HeaderComponent extends React.Component<Props> {
           </div>
           <nav className={b('navigation')}>
             {links.map((link: LinkType)=> {
-        
               return (
                 <Link 
                   className={b('link', {state: history.location.pathname.indexOf(link.href) !== -1 ? 'active': 'inactive' })}

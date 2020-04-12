@@ -42,17 +42,19 @@
 }
 
 @mixin color($property, $name) {
-  $colorObj: map-get($available-colors, $name);
+  $color: map-get($available-colors, $name);
 
   @if ($property == 'color') {
-    color: map-get($colorObj, 'color');
+    color: $color;
   }
 
   @if ($property == 'backgroundColor') {
-    background-color: map-get($colorObj, 'color');
+    background-color: $color;
   }
 
-  opacity: map-get($colorObj, 'opacity');
+  @if ($property == 'borderColor') {
+    border-color: $color;
+  }
 }
 
 @mixin font($type) {

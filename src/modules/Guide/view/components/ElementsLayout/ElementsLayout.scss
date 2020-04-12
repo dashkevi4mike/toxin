@@ -3,13 +3,21 @@
   background-color: #ffff;
 
   &__inner {
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
-    width: 100%;
+    width: 90%;
   }
 
-  &__row {
+  &__column {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: space-between;
+    width: 320px;
+  }
+
+  &__element {
+    margin-bottom: 20px;
   }
 }
