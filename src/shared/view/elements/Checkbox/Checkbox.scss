@@ -1,0 +1,74 @@
+@import '~shared/styles/mixins';
+
+/* doiuse-disable user-select-none */
+
+.checkbox {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__label {
+    cursor: pointer;
+
+    @include font('p');
+    @include color('color', 'darkShade50');
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: white;
+
+    @include color('borderColor', 'darkShade25');
+
+    &::after {
+      position: absolute;
+      top: 1.6px;
+      left: 6.4px;
+      display: none;
+      width: 5px;
+      height: 8px;
+      border: solid;
+      border-width: 0 2px 2px 0;
+      content: "";
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+
+      @include color('borderColor', 'purple100');
+    }
+  }
+
+  &__checkbox:checked ~ &__checkmark {
+    background-color: white;
+
+    @include color('borderColor', 'purple100');
+  }
+
+  &:hover &__checkbox ~ &__checkmark {
+    @include color('borderColor', 'purple100');
+  }
+
+  /* Show the checkmark when checked */
+  &__checkbox:checked ~ &__checkmark::after {
+    display: block;
+  }
+}
