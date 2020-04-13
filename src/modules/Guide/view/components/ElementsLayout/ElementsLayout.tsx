@@ -5,7 +5,7 @@ import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
 
-import { Input, EmailInput, PasswordInput } from 'shared/view/elements';
+import { Input, EmailInput, PasswordInput, Checkbox } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
 
@@ -95,6 +95,15 @@ function ElementsLayoutComponent(_props: Props) {
             </div>
           </div>
           <div className={b('column')}>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Checkbox</h3>
+              <Checkbox
+                label="Pets allowed"
+                id="pets"
+                initialChecked={false}
+                name="pets"
+              />
+            </div>
           </div>
           <div className={b('column')}>
           </div>
