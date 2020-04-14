@@ -7,4 +7,5 @@ export { SocialLinks } from './SocialLinks/SocialLinks';
 export { Divider } from './Divider/Divider';
 export { Checkbox } from './Checkbox/Checkbox';
 export { Radio } from './Radio/Radio';
+export { ToggleButton } from './ToggleButton/ToggleButton';
 export { RadioGroup } from './RadioGroup/RadioGroup';
