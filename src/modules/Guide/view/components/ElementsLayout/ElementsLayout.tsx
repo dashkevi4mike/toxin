@@ -136,7 +136,7 @@ function ElementsLayoutComponent(_props: Props) {
               <LikeButton
                 initialChecked={false}
                 name="posts"
-                count={12}
+                count={1256}
               />
             </div>
           </div>
