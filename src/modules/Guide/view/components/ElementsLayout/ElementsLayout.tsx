@@ -5,7 +5,7 @@ import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
 
-import { Input, EmailInput, PasswordInput, Checkbox, RadioGroup } from 'shared/view/elements';
+import { Input, EmailInput, PasswordInput, Checkbox, RadioGroup, ToggleButton } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
 
@@ -109,7 +109,6 @@ function ElementsLayoutComponent(_props: Props) {
               <h3 className={b('group-title')}>Checkbox</h3>
               <Checkbox
                 label="Pets allowed"
-                id="pets"
                 initialChecked={false}
                 name="pets"
               />
@@ -118,6 +117,14 @@ function ElementsLayoutComponent(_props: Props) {
               <h3 className={b('group-title')}>Radio buttons</h3>
               <RadioGroup
                 {...radioButtons}
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Toggle button</h3>
+              <ToggleButton
+                label="Subscribe to newsletters"
+                initialChecked={false}
+                name="news"
               />
             </div>
           </div>

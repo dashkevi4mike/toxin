@@ -2,9 +2,9 @@ import React from 'react';
 import block from 'bem-cn';
 import { autobind } from 'core-decorators';
 
-import './Checkbox.scss';
+import './ToggleButton.scss';
 
-const b = block('checkbox');
+const b = block('toggle-button');
 
 type Props = {
   name: string;
@@ -17,7 +17,7 @@ type State = {
   checked: boolean;
 }
 
-class Checkbox extends React.Component<Props, State> {
+class ToggleButton extends React.Component<Props, State> {
   public state = { checked: false };
 
   componentDidMount() {
@@ -26,13 +26,12 @@ class Checkbox extends React.Component<Props, State> {
   }
 
   render() {
-    const { label } = this.props;
+    const { label, name } = this.props;
     const { checked } = this.state;
-
     return (
       <div className={b()}>
         <div className={b('label')} onClick={this.handleClick}>
-          <input type="checkbox" className={b('checkbox')} checked={checked} />
+          <input type="checkbox" className={b('toggle-button')} checked={checked} name={name} onChange={()=>{}}/>
           <span>{label}</span>
           <span className={b('checkmark')}/>
         </div>  
@@ -45,9 +44,9 @@ class Checkbox extends React.Component<Props, State> {
     const { checked } = this.state;
     const { onChange } = this.props;
     this.setState({ checked: !checked });
-    if (onChange) {onChange(!checked); }
+    if (onChange) { onChange(!checked); }
   }
 }
 
-export { Checkbox, Props };
+export { ToggleButton, Props };
       
