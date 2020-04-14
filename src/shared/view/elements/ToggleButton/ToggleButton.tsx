@@ -10,7 +10,7 @@ type Props = {
   name: string;
   initialChecked?: boolean;
   label: string;
-  onChange?: (value: boolean) => void;
+  onChange: (value: boolean) => void;
 }
 
 type State = {

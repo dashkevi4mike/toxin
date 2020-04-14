@@ -1,0 +1,10 @@
+@import '~shared/styles/mixins';
+
+.star {
+  color: $purple100;
+  cursor: pointer;
+}
+
+.star .MuiSvgIcon-root {
+  font-size: 24px;
+}

@@ -13,7 +13,7 @@ type Props = {
   name: string;
   initialChecked?: boolean;
   count: number;
-  onChange?: (value: boolean) => void;
+  onChange: (value: boolean) => void;
 }
 
 type State = {
