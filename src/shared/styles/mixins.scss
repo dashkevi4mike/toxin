@@ -41,22 +41,6 @@
   }
 }
 
-@mixin color($property, $name) {
-  $color: map-get($available-colors, $name);
-
-  @if ($property == 'color') {
-    color: $color;
-  }
-
-  @if ($property == 'backgroundColor') {
-    background-color: $color;
-  }
-
-  @if ($property == 'borderColor') {
-    border-color: $color;
-  }
-}
-
 @mixin font($type) {
   $fontObj: map-get($available-fonts, $type);
 

@@ -13,10 +13,10 @@
   user-select: none;
 
   &__label {
+    color: $darkShade50;
     cursor: pointer;
 
     @include font('p');
-    @include color('color', 'darkShade50');
   }
 
   &__checkbox {
@@ -34,10 +34,9 @@
     width: 20px;
     height: 20px;
     border: 1px solid;
+    border-color: $darkShade25;
     border-radius: 4px;
     background-color: white;
-
-    @include color('borderColor', 'darkShade25');
 
     &::after {
       position: absolute;
@@ -48,23 +47,21 @@
       height: 8px;
       border: solid;
       border-width: 0 2px 2px 0;
+      border-color: $purple100;
       content: "";
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
-
-      @include color('borderColor', 'purple100');
     }
   }
 
   &__checkbox:checked ~ &__checkmark {
+    border-color: $purple100;
     background-color: white;
-
-    @include color('borderColor', 'purple100');
   }
 
   &:hover &__checkbox ~ &__checkmark {
-    @include color('borderColor', 'purple100');
+    border-color: $purple100;
   }
 
   /* Show the checkmark when checked */

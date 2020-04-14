@@ -7,18 +7,18 @@
 
   &__link {
     margin: 10px;
+    color: $darkShade50;
     text-decoration: none;
     cursor: pointer;
 
     @include font('p');
-    @include color('color', 'darkShade50');
 
     &:hover {
-      @include color('color', 'darkShade100');
+      color: $darkShade100;
     }
 
     &_state_active {
-      @include color('color', 'darkShade100');
+      color: $darkShade100;
     }
   }
 }

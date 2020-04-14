@@ -5,7 +5,11 @@ import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
 
-import { Input, EmailInput, PasswordInput, Checkbox, RadioGroup, ToggleButton } from 'shared/view/elements';
+import { 
+  Input, EmailInput, PasswordInput,
+  Checkbox, RadioGroup, ToggleButton,
+  LikeButton,
+} from 'shared/view/elements';
 
 import './ElementsLayout.scss';
 
@@ -125,6 +129,14 @@ function ElementsLayoutComponent(_props: Props) {
                 label="Subscribe to newsletters"
                 initialChecked={false}
                 name="news"
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Like button</h3>
+              <LikeButton
+                initialChecked={false}
+                name="posts"
+                count={12}
               />
             </div>
           </div>

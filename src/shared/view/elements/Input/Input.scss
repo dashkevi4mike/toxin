@@ -5,17 +5,17 @@
 
   &__label {
     margin-bottom: 5px;
+    color: $darkShade100;
     text-transform: uppercase;
 
     @include font('h3');
-    @include color('color', 'darkShade100');
   }
 
   &__error {
     margin: 5px 0;
+    color: $red100;
 
     @include font('p');
-    @include color('color', 'red100');
   }
 
   &__input {
@@ -23,21 +23,21 @@
     width: 100%;
     height: 44px;
     border-width: 1px;
+    border-color: $darkShade25;
     border-radius: 4px;
+    color: $darkShade100;
 
     @include font('p');
-    @include color('color', 'darkShade100');
-    @include color('borderColor', 'darkShade25');
 
     &::placeholder {
+      color: $darkShade25;
+
       @include font('p');
-      @include color('color', 'darkShade25');
     }
 
     &:focus {
       outline: none;
-
-      @include color('borderColor', 'darkShade50');
+      border-color: $darkShade50;
     }
   }
 
@@ -50,12 +50,11 @@
     position: absolute;
     right: 10px;
     bottom: 5px;
+    color: $darkShade25;
     cursor: pointer;
 
-    @include color('color', 'darkShade25');
-
     &:hover {
-      @include color('color', 'darkShade50');
+      color: $darkShade50;
     }
   }
 }
