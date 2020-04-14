@@ -27,7 +27,7 @@ function SocialLinks() {
   return (
     <div className={b()}>
       {socialLinks.map((socialLink) => (
-        <a href={socialLink.href} className={b('link')} target="_blank" rel="noopener noreferrer">
+        <a key={socialLink.type} href={socialLink.href} className={b('link')} target="_blank" rel="noopener noreferrer">
           <img src={socialLink.icon} className={b('icon')} title={socialLink.type} />
         </a>
       ))}

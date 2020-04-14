@@ -6,3 +6,5 @@ export { Logo } from './Logo/Logo';
 export { SocialLinks } from './SocialLinks/SocialLinks';
 export { Divider } from './Divider/Divider';
 export { Checkbox } from './Checkbox/Checkbox';
+export { Radio } from './Radio/Radio';
+export { RadioGroup } from './RadioGroup/RadioGroup';

@@ -5,7 +5,7 @@ import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
 
-import { Input, EmailInput, PasswordInput, Checkbox } from 'shared/view/elements';
+import { Input, EmailInput, PasswordInput, Checkbox, RadioGroup } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
 
@@ -56,6 +56,16 @@ const footerLinks = [
   }
 ];
 
+const radioButtons = {
+  name: 'male',
+  options: [
+    { label: 'Women', value: 'women', name: 'male' },
+    { label: 'Men', value: 'men', name: 'male' },
+  ],
+  initialValue: 'men',
+  onChange: () => {},
+};
+
 function ElementsLayoutComponent(_props: Props) {
 
   return (
@@ -102,6 +112,12 @@ function ElementsLayoutComponent(_props: Props) {
                 id="pets"
                 initialChecked={false}
                 name="pets"
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Radio buttons</h3>
+              <RadioGroup
+                {...radioButtons}
               />
             </div>
           </div>
