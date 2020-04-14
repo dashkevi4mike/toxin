@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Form, FormRenderProps } from 'react-final-form';
 import { autobind } from 'core-decorators';
 
-import { Button } from 'shared/view/elements';
+// import { Button } from 'shared/view/elements';
 import { IAppReduxState } from 'shared/types/app';
 import { IProfile } from 'shared/types/models';
 import { ProfileAvatar } from '../../components';
@@ -56,7 +56,7 @@ class ProfileEditComponent extends React.PureComponent<IProps> {
         </div>
         
           <div className={b('button')}>
-            <Button variant="outlined" type="submit">Save</Button>
+            {/* <Button variant="outlined" type="submit">Save</Button> */}
           </div>
       </form>
     );

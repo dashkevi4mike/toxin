@@ -8,7 +8,7 @@ import { routes } from 'modules/routes';
 import { 
   Input, EmailInput, PasswordInput,
   Checkbox, RadioGroup, ToggleButton,
-  LikeButton, RateButton
+  LikeButton, RateButton, Button
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -151,6 +151,30 @@ function ElementsLayoutComponent(_props: Props) {
             </div>
           </div>
           <div className={b('column')}>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Filled button</h3>
+              <Button theme="filled" onClick={() => {}}>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Disabled filled button</h3>
+              <Button theme="filled" onClick={() => {}} disabled>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Transparent button</h3>
+              <Button theme="transparent" onClick={() => {}}>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Transparent disabled button</h3>
+              <Button theme="transparent" onClick={() => {}} disabled>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Full width filled button</h3>
+              <Button theme="filled" onClick={() => {}} fullWidth>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Full width transparent button</h3>
+              <Button theme="transparent" onClick={() => {}} fullWidth>Click me</Button>
+            </div>
           </div>
         </div>
       </div>

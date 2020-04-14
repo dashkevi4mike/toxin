@@ -1,0 +1,39 @@
+@import '~shared/styles/mixins';
+
+.button {
+  padding: 0 23px;
+  height: 44px;
+  border: none;
+  border-radius: 22px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @include font('h3');
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: initial;
+  }
+
+  &_theme_filled {
+    /* doiuse-disable */
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    color: white;
+
+    /* doiuse-enable */
+  }
+
+  &_theme_transparent {
+    border: 2px solid $purple100;
+    color: $purple100;
+  }
+
+  &_full-width {
+    padding: 0;
+    width: 100%;
+  }
+}
