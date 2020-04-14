@@ -1,0 +1,62 @@
+@import '~shared/styles/mixins';
+
+/* doiuse-disable user-select-none */
+
+.like-button {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__count {
+    color: $darkShade50;
+
+    @include font('span');
+  }
+
+  &__heart .MuiSvgIcon-root {
+    font-size: 10px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__heart {
+    margin: 0 5px;
+    color: $purple100;
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid;
+    border-color: $darkShade25;
+    border-radius: 10px;
+  }
+
+  &__checkbox:checked ~ &__checkmark {
+    border-color: $purple100;
+  }
+
+  &:hover &__checkbox ~ &__checkmark {
+    border-color: $purple100;
+  }
+}

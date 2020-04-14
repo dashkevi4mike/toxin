@@ -25,9 +25,9 @@
 
   &__group-title {
     margin-bottom: 5px;
+    color: $darkShade100;
     text-transform: uppercase;
 
     @include font('h3');
-    @include color('color', 'darkShade100');
   }
 }

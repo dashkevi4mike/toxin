@@ -41,14 +41,14 @@
   &__link {
     position: relative;
     margin: 0 15px;
+    color: $darkShade50;
     text-decoration: none;
     cursor: pointer;
 
     @include font('p');
-    @include color('color', 'darkShade50');
 
     &:hover {
-      @include color('color', 'darkShade100');
+      color: $darkShade100;
 
       .header__expand {
         transform: rotate(180deg);
@@ -60,7 +60,7 @@
     }
 
     &_state_active {
-      @include color('color', 'darkShade100');
+      color: $darkShade100;
     }
   }
 }

@@ -4,6 +4,5 @@
   margin: 0;
   height: 2px;
   border: none;
-
-  @include color('backgroundColor', 'darkShade5');
+  background-color: $darkShade5;
 }

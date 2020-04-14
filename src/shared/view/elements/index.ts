@@ -8,4 +8,5 @@ export { Divider } from './Divider/Divider';
 export { Checkbox } from './Checkbox/Checkbox';
 export { Radio } from './Radio/Radio';
 export { ToggleButton } from './ToggleButton/ToggleButton';
+export { LikeButton } from './LikeButton/LikeButton';
 export { RadioGroup } from './RadioGroup/RadioGroup';

@@ -14,10 +14,10 @@
 
   &__description {
     margin-top: 20px;
+    color: $darkShade75;
     line-height: 24px;
 
     @include font('p');
-    @include color('color', 'darkShade75');
   }
 
   &__aside {
@@ -55,21 +55,21 @@
 
   &__group-title {
     margin-bottom: 20px;
+    color: $darkShade100;
 
     @include font('h3');
-    @include color('color', 'darkShade100');
   }
 
   &__link {
     margin-bottom: 20px;
+    color: $darkShade50;
     text-decoration: none;
     cursor: pointer;
 
     @include font('p');
-    @include color('color', 'darkShade50');
 
     &:hover {
-      @include color('color', 'darkShade100');
+      color: $darkShade100;
     }
   }
 
@@ -98,7 +98,8 @@
   }
 
   &__copyright {
+    color: $darkShade75;
+
     @include font('p');
-    @include color('color', 'darkShade75');
   }
 }

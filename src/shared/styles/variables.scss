@@ -1,17 +1,18 @@
+// available colors;
+$darkShade100: rgba(31, 32, 65, 1);
+$darkShade75: rgba(31, 32, 65, 0.75);
+$darkShade50: rgba(31, 32, 65, 0.5);
+$darkShade25: rgba(31, 32, 65, 0.25);
+$darkShade5: rgba(31, 32, 65, 0.05);
+$purple100: #bc9cff;
+$green100: #6fcf97;
+$red100: rgba(226, 0, 0, 1);
+$white: #ffff;
+// end available colors;
 $available-breakpoints: (
   xs: 320px,
   sm: 590px,
   md: 960px,
-);
-$available-colors: (
-  darkShade100: rgba(31, 32, 65, 1),
-  darkShade75: rgba(31, 32, 65, 0.75),
-  darkShade50: rgba(31, 32, 65, 0.5),
-  darkShade25: rgba(31, 32, 65, 0.25),
-  darkShade5: rgba(31, 32, 65, 0.05),
-  purple100: #bc9cff,
-  green100: #6fcf97,
-  red100: rgba(226, 0, 0, 1),
 );
 $available-fonts: (
   h1: (
@@ -37,5 +38,11 @@ $available-fonts: (
     weight: 400,
     family: Montserrat,
     lineHeight: 24px,
+  ),
+  span: (
+    size: 10px,
+    weight: 400,
+    family: Montserrat,
+    lineHeight: 10px,
   )
 );

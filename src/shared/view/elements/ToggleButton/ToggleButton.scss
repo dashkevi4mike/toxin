@@ -13,10 +13,10 @@
   user-select: none;
 
   &__label {
+    color: $darkShade50;
     cursor: pointer;
 
     @include font('p');
-    @include color('color', 'darkShade50');
   }
 
   &__toggle-button {
@@ -34,10 +34,9 @@
     width: 40px;
     height: 20px;
     border: 1px solid;
+    border-color: $darkShade25;
     border-radius: 10px;
     background-color: white;
-
-    @include color('borderColor', 'darkShade25');
 
     &::after {
       position: absolute;
@@ -47,27 +46,24 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
+      background-color: $darkShade25;
       content: "";
       transition: all 0.2s ease;
-
-      @include color('backgroundColor', 'darkShade25');
     }
   }
 
   &__toggle-button:checked ~ &__checkmark {
+    border-color: $purple100;
     background-color: white;
-
-    @include color('borderColor', 'purple100');
   }
 
   &:hover &__toggle-button ~ &__checkmark {
-    @include color('borderColor', 'purple100');
+    border-color: $purple100;
   }
 
   /* Show the checkmark when checked */
   &__toggle-button:checked ~ &__checkmark::after {
     left: 23px;
-
-    @include color('backgroundColor', 'purple100');
+    background-color: $purple100;
   }
 }
