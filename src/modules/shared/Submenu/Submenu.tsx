@@ -18,7 +18,7 @@ function SubmenuComponent({ links, history }: Props) {
       {
         links.map((link) => {
           return (
-            <Link 
+            <Link
               to={link.href} 
               className={b('link', {state: history.location.pathname.indexOf(link.href) !== -1 ? 'active': 'inactive' })}
             >{link.title}</Link>
