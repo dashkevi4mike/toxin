@@ -8,7 +8,7 @@ import { routes } from 'modules/routes';
 import { 
   Input, EmailInput, PasswordInput,
   Checkbox, RadioGroup, ToggleButton,
-  LikeButton,
+  LikeButton, RateButton
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -129,6 +129,7 @@ function ElementsLayoutComponent(_props: Props) {
                 label="Subscribe to newsletters"
                 initialChecked={false}
                 name="news"
+                onChange={() => {}}
               />
             </div>
             <div className={b('element')}>
@@ -137,6 +138,15 @@ function ElementsLayoutComponent(_props: Props) {
                 initialChecked={false}
                 name="posts"
                 count={1256}
+                onChange={() => {}}
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Rate button</h3>
+              <RateButton
+                initialCount={3}
+                totalCount={5}
+                onChange={() => {}}
               />
             </div>
           </div>
