@@ -10,6 +10,7 @@ import {
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
   Text,
+  BulletList,
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -205,6 +206,14 @@ function ElementsLayoutComponent(_props: Props) {
             <div className={b('element')}>
               <h3 className={b('group-title')}>Full width transparent button</h3>
               <Button theme="transparent" onClick={() => {}} fullWidth>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Bullet list</h3>
+              <BulletList
+                list={
+                  ['Can smoke', 'Pets allowed', 'Alcohol allowed']
+                }
+              />
             </div>
           </div>
         </div>

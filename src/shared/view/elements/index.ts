@@ -13,3 +13,4 @@ export { LikeButton } from './LikeButton/LikeButton';
 export { RadioGroup } from './RadioGroup/RadioGroup';
 export { Expander } from './Expander/Expander';
 export { Text } from './Text/Text';
+export { BulletList } from './BulletList/BulletList';
