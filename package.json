@@ -186,6 +186,8 @@
     "postcss-reporter": "^6.0.0",
     "postcss-scss": "^2.0.0",
     "ramda": "^0.26.1",
+    "rc-slider": "^9.2.4",
+    "rc-tooltip": "^4.0.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-final-form": "^4.0.2",

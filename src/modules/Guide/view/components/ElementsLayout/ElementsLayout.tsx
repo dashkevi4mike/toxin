@@ -9,8 +9,7 @@ import {
   Input, EmailInput, PasswordInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
-  Text,
-  BulletList,
+  Text, RangeSlider, BulletList,
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -183,6 +182,9 @@ function ElementsLayoutComponent(_props: Props) {
             </div>
           </div>
           <div className={b('column')}>
+            <div className={b('element')}>
+              <RangeSlider />
+            </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Filled button</h3>
               <Button theme="filled" onClick={() => {}}>Click me</Button>
