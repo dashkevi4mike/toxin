@@ -1,0 +1,7 @@
+@import '~shared/styles/mixins';
+
+.text {
+  color: $darkShade75;
+
+  @include font('p');
+}

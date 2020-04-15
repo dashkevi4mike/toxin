@@ -8,7 +8,8 @@ import { routes } from 'modules/routes';
 import { 
   Input, EmailInput, PasswordInput,
   Checkbox, RadioGroup, ToggleButton,
-  LikeButton, RateButton, Button
+  LikeButton, RateButton, Button, Expander,
+  Text,
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -106,6 +107,36 @@ function ElementsLayoutComponent(_props: Props) {
                 isRequired
                 onChange={()=>{}}
               />
+            </div>
+            <div className={b('element')}>
+              <Expander
+                title="expander with any content"
+                isOpen={false}
+                forceChange={()=>{}}
+                onChange={()=>{}}
+              >
+                <Checkbox
+                  label="Smoke allowed"
+                  initialChecked={false}
+                  name="smoke"
+                />
+                <Checkbox
+                  label="Alcohol allowed"
+                  initialChecked={false}
+                  name="alcohol"
+                />
+              </Expander>
+            </div>
+            <div className={b('element')}>
+              <Expander
+                title="disabled opened expander"
+                isOpen
+                disabled
+                forceChange={()=>{}}
+                onChange={()=>{}}
+              >
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
+              </Expander>
             </div>
           </div>
           <div className={b('column')}>
