@@ -1,0 +1,43 @@
+@import '~shared/styles/mixins';
+
+.expander {
+  display: block;
+
+  &__content-inner {
+    padding: 5px 0;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: height 1s;
+  }
+
+  &__content_state_closed {
+    height: 0;
+  }
+
+  &__content_state_open {
+    height: auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__title {
+    color: $darkShade100;
+    text-transform: uppercase;
+
+    @include font('h3');
+  }
+
+  &__icon {
+    transition: transform 0.5s;
+  }
+
+  &__icon_direction_reverse {
+    transform: rotate(180deg);
+  }
+}

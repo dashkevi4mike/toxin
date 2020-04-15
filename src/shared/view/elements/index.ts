@@ -11,3 +11,5 @@ export { ToggleButton } from './ToggleButton/ToggleButton';
 export { RateButton } from './RateButton/RateButton';
 export { LikeButton } from './LikeButton/LikeButton';
 export { RadioGroup } from './RadioGroup/RadioGroup';
+export { Expander } from './Expander/Expander';
+export { Text } from './Text/Text';
