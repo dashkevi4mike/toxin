@@ -8,7 +8,7 @@ import { Layout } from '../../../../shared';
 import { routes } from 'modules/routes';
 
 import { 
-  Input, EmailInput, PasswordInput,
+  Input, EmailInput, PasswordInput, MaskedInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
   Text, RangeSlider, BulletList,
@@ -82,37 +82,36 @@ function ElementsLayoutComponent(_props: Props) {
           <div className={b('column')}>
             <div className={b('element')}>
               <Input
-                id="name"
                 name="name"
                 label="text field"
                 placeholder="Name"
                 isRequired
                 onChange={()=>{}}
+                validateOnChange
               />
             </div>
             <div className={b('element')}>
               <EmailInput
-                id="email"
                 name="email"
                 label="email field"
                 placeholder="Email"
                 isRequired
                 onChange={()=>{}}
+                validateOnChange
               />
             </div>
             <div className={b('element')}>
               <PasswordInput
-                id="password"
                 name="password"
                 label="Password field"
                 placeholder="Password"
                 isRequired
                 onChange={()=>{}}
+                validateOnChange
               />
             </div>
             <div className={b('element')}>
               <EmailInput
-                id="subscribe"
                 name="email"
                 label="Subscription Text Field"
                 placeholder="Email"
@@ -120,6 +119,29 @@ function ElementsLayoutComponent(_props: Props) {
                 icon={<ArrowForward />}
                 onChange={()=>{}}
                 onIconClick={()=>{}}
+                validateOnChange
+              />
+            </div>
+            <div className={b('element')}>
+              <MaskedInput
+                placeholder="DD.MM.YYYY"
+                name="date"
+                label="Masked Date Field"
+                maskType="date"
+                isRequired
+                onChange={()=>{}}
+                validateOnChange={false}
+              />
+            </div>
+            <div className={b('element')}>
+              <MaskedInput
+                placeholder="Card number"
+                name="card"
+                label="Masked Card Number Field"
+                maskType="visa"
+                isRequired
+                onChange={()=>{}}
+                validateOnChange={false}
               />
             </div>
             <div className={b('element')}>
