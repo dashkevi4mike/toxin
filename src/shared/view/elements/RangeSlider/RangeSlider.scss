@@ -1,0 +1,64 @@
+@import '~shared/styles/mixins';
+
+.range-slider {
+  display: block;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  &__values {
+    color: $darkShade75;
+
+    @include font('p');
+    /* stylelint-disable */
+    line-height: 1em;
+    /* stylelint-enable */
+  }
+
+  &__title {
+    color: $darkShade100;
+    text-transform: uppercase;
+
+    @include font('h3');
+
+    /* stylelint-disable */
+    line-height: 1em;
+    /* stylelint-enable */
+  }
+}
+
+.range-slider .rc-slider-handle {
+  margin-top: -4px;
+  width: 12px;
+  height: 12px;
+  border: solid 2px $purple100;
+
+  &:focus {
+    box-shadow: 0 0 3px $purple100;
+  }
+
+  &:hover {
+    border-color: $purple100;
+  }
+
+  &:active {
+    border-color: $purple100;
+    box-shadow: 0 0 3px $purple100;
+  }
+}
+
+.range-slider .rc-slider-track {
+  background-color: $purple100;
+}
+
+.range-slider .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: $purple100;
+  box-shadow: 0 0 0 3px $purple100;
+}
+
+.range-slider .rc-slider-handle-click-focused:focus {
+  border-color: $purple100;
+}
