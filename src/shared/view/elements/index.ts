@@ -16,3 +16,4 @@ export { Expander } from './Expander/Expander';
 export { Text } from './Text/Text';
 export { BulletList } from './BulletList/BulletList';
 export { RangeSlider } from './RangeSlider/RangeSlider';
+export { Dropdown } from './Dropdown/Dropdown';

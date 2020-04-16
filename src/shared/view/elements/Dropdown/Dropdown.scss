@@ -1,0 +1,60 @@
+@import '~shared/styles/mixins';
+
+.dropdown {
+  display: block;
+
+  &__content-inner {
+    padding: 15px;
+  }
+
+  &__content {
+    overflow: hidden;
+    border: 1px solid $darkShade50;
+    border-top: none;
+    transition: height 1s;
+  }
+
+  &__content_state_closed {
+    height: 0;
+    border-bottom: none;
+  }
+
+  &__content_state_open {
+    height: auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid $darkShade50;
+    cursor: pointer;
+  }
+
+  &__label {
+    margin-bottom: 5px;
+    color: $darkShade100;
+    text-transform: uppercase;
+
+    @include font('h3');
+  }
+
+  &__placeholder {
+    color: $darkShade75;
+
+    @include font('p');
+  }
+
+  &__icon {
+    transition: transform 0.5s;
+  }
+
+  &__icon_direction_reverse {
+    transform: rotate(180deg);
+  }
+
+  &_state_disabled &__header {
+    background-color: $darkShade5;
+    cursor: initial;
+  }
+}

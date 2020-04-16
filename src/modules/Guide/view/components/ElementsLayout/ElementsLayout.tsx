@@ -11,7 +11,7 @@ import {
   Input, EmailInput, PasswordInput, MaskedInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
-  Text, RangeSlider, BulletList,
+  Text, RangeSlider, BulletList, Dropdown
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -144,27 +144,6 @@ function ElementsLayoutComponent(_props: Props) {
                 validateOnChange={false}
               />
             </div>
-            <div className={b('element')}>
-              <Expander
-                title="expander with any content"
-                isOpen={false}
-                forceChange={()=>{}}
-                onChange={()=>{}}
-              >
-                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
-              </Expander>
-            </div>
-            <div className={b('element')}>
-              <Expander
-                title="disabled opened expander"
-                isOpen
-                disabled
-                forceChange={()=>{}}
-                onChange={()=>{}}
-              >
-                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
-              </Expander>
-            </div>
           </div>
           <div className={b('column')}>
             <div className={b('element')}>
@@ -205,6 +184,42 @@ function ElementsLayoutComponent(_props: Props) {
                 initialCount={3}
                 totalCount={5}
                 onChange={() => {}}
+              />
+            </div>
+            <div className={b('element')}>
+              <Expander
+                title="expander with any content"
+                isOpen={false}
+                forceChange={()=>{}}
+                onChange={()=>{}}
+              >
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
+              </Expander>
+            </div>
+            <div className={b('element')}>
+              <Expander
+                title="disabled opened expander"
+                isOpen
+                disabled
+                forceChange={()=>{}}
+                onChange={()=>{}}
+              >
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
+              </Expander>
+            </div>
+            <div className={b('element')}>
+              <Dropdown
+                label="dropdown"
+                placeholder="Who with you?"
+              >
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
+              </Dropdown>
+            </div>
+            <div className={b('element')}>
+              <Dropdown
+                label="disabled dropdown"
+                placeholder="Who with you?"
+                disabled
               />
             </div>
           </div>
