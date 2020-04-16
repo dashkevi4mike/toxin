@@ -183,7 +183,14 @@ function ElementsLayoutComponent(_props: Props) {
           </div>
           <div className={b('column')}>
             <div className={b('element')}>
-              <RangeSlider />
+              <RangeSlider
+                title="range slider"
+                min={10}
+                max={500}
+                step={5}
+                defaultValue={[ 50, 300 ]}
+                onChange={() => {}}
+              />
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Filled button</h3>
