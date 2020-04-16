@@ -1,6 +1,8 @@
 import React from 'react';
 import block from 'bem-cn';
 
+import ArrowForward from '@material-ui/icons/ArrowForward';
+
 import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
@@ -109,22 +111,25 @@ function ElementsLayoutComponent(_props: Props) {
               />
             </div>
             <div className={b('element')}>
+              <EmailInput
+                id="subscribe"
+                name="email"
+                label="Subscription Text Field"
+                placeholder="Email"
+                isRequired
+                icon={<ArrowForward />}
+                onChange={()=>{}}
+                onIconClick={()=>{}}
+              />
+            </div>
+            <div className={b('element')}>
               <Expander
                 title="expander with any content"
                 isOpen={false}
                 forceChange={()=>{}}
                 onChange={()=>{}}
               >
-                <Checkbox
-                  label="Smoke allowed"
-                  initialChecked={false}
-                  name="smoke"
-                />
-                <Checkbox
-                  label="Alcohol allowed"
-                  initialChecked={false}
-                  name="alcohol"
-                />
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
               </Expander>
             </div>
             <div className={b('element')}>
