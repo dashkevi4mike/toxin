@@ -31,8 +31,8 @@ class Expander extends React.Component<Props, State> {
     const { isOpen } = this.state;
 
     return (
-      <div className={b()} onClick={this.handleClick}>
-        <div className={b('header')}>
+      <div className={b()}>
+        <div className={b('header')} onClick={this.handleClick}>
           <h3 className={b('title')}>{title}</h3>
           <img className={b('icon', { direction: isOpen ? 'reverse' : 'normal'})} src={require('./imgs/expand_more.svg')}/>
         </div>
