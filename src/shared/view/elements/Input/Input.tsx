@@ -8,17 +8,20 @@ import './Input.scss';
 
 const b = block('input');
 
+
 type Props = {
   name: string;
-  id: string;
+  id?: string;
   placeholder: string;
   label: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  validateOnChange: boolean;
   validators?: Array<(...args: string[]) => string | undefined>;
   type?: string;
   value?: string;
   icon?: React.ReactElement;
   error?: string;
+  innerRef?: any;
   isRequired?: boolean;
   onIconClick?: () => void;
   validate?: () => void;
@@ -64,31 +67,42 @@ class Input extends React.Component<Props, State> {
       name,
       type,
       placeholder,
-      onBlur,
       id,
+      innerRef,
     } = this.props;
     return (
       <input
         className={b('input')}
         name={name}
         id={id}
+        ref={innerRef}
         placeholder={placeholder}
         type={type ? type : 'text'}
         onChange={this.handleChange}
         onFocus={this.handleFocus}
-        onBlur={onBlur}
+        onBlur={this.handleBlur}
       />
     );
   }
 
   @autobind
-  private handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  private handleBlur(event: React.ChangeEvent<HTMLInputElement>) {
+    const { onBlur } = this.props;
     this.validate(event.currentTarget.value);
+    if (onBlur) { onBlur() }
   }
 
   @autobind
-  private handleFocus(event: React.FocusEvent<HTMLInputElement>) {
-    this.validate(event.currentTarget.value);
+  private handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { onChange, validateOnChange } = this.props;
+    if (validateOnChange) { this.validate(event.currentTarget.value) };
+    if (onChange) { onChange(event) }
+  }
+
+  @autobind
+  private handleFocus() {
+    const { onFocus } = this.props;
+    if (onFocus) { onFocus() }
   }
 
   private validate(value: string) {
