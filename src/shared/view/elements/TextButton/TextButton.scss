@@ -1,0 +1,22 @@
+@import '~shared/styles/mixins';
+
+.text-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: $purple100;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @include font('h3');
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:disabled {
+    color: $darkShade50;
+    opacity: 1;
+    cursor: initial;
+  }
+}

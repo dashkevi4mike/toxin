@@ -11,7 +11,8 @@ import {
   Input, EmailInput, PasswordInput, MaskedInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
-  Text, RangeSlider, BulletList, Dropdown, NumberInput
+  Text, RangeSlider, BulletList, SelfControlledDropdown, 
+  GuestsDropdown, TextButton
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -208,34 +209,22 @@ function ElementsLayoutComponent(_props: Props) {
               </Expander>
             </div>
             <div className={b('element')}>
-              <Dropdown
+              <SelfControlledDropdown
                 label="dropdown"
                 placeholder="Who with you?"
               >
                 <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
-              </Dropdown>
+              </SelfControlledDropdown>
             </div>
             <div className={b('element')}>
-              <Dropdown
+              <SelfControlledDropdown
                 label="disabled dropdown"
                 placeholder="Who with you?"
                 disabled
               />
             </div>
             <div className={b('element')}>
-              <Dropdown
-                label="dropdown with form"
-                placeholder="Who with you?"
-              >
-                <NumberInput
-                  name="adult"
-                  label="Adults"
-                  min={1}
-                  max={4}
-                  initialValue={1}
-                  onChange={()=>{}}
-                />
-              </Dropdown>
+              <GuestsDropdown onChange={() => {}} />
             </div>
           </div>
           <div className={b('column')}>
@@ -251,27 +240,35 @@ function ElementsLayoutComponent(_props: Props) {
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Filled button</h3>
-              <Button theme="filled" onClick={() => {}}>Click me</Button>
+              <Button theme="filled" type="button" onClick={() => {}}>Click me</Button>
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Disabled filled button</h3>
-              <Button theme="filled" onClick={() => {}} disabled>Click me</Button>
+              <Button type="button" theme="filled" onClick={() => {}} disabled>Click me</Button>
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Transparent button</h3>
-              <Button theme="transparent" onClick={() => {}}>Click me</Button>
+              <Button type="button" theme="transparent" onClick={() => {}}>Click me</Button>
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Transparent disabled button</h3>
-              <Button theme="transparent" onClick={() => {}} disabled>Click me</Button>
+              <Button type="button" theme="transparent" onClick={() => {}} disabled>Click me</Button>
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Full width filled button</h3>
-              <Button theme="filled" onClick={() => {}} fullWidth>Click me</Button>
+              <Button type="button" theme="filled" onClick={() => {}} fullWidth>Click me</Button>
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Full width transparent button</h3>
-              <Button theme="transparent" onClick={() => {}} fullWidth>Click me</Button>
+              <Button type="button" theme="transparent" onClick={() => {}} fullWidth>Click me</Button>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Text button</h3>
+              <TextButton type="button" text="click me" onClick={() => {}} />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Disabled text button</h3>
+              <TextButton type="button" text="click me" onClick={() => {}} disabled />
             </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Bullet list</h3>

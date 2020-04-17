@@ -3,7 +3,7 @@ import block from 'bem-cn';
 
 import { ColorType } from 'shared/types/models';
 
-import { Color } from '../Color/Color';
+import { Color } from 'shared/view/elements/Color/Color';
 
 import './Colors.scss';
 

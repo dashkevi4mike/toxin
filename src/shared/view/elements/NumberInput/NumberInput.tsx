@@ -10,9 +10,9 @@ type Props = {
   name: string;
   initialValue: number;
   label: string;
-  onChange?: (value: number) => void;
   min: number;
   max: number;
+  onChange?: (value: number) => void;
 }
 
 type State = {
@@ -30,32 +30,37 @@ class NumberInput extends React.Component<Props, State> {
   render() {
     const { label, min, max, name } = this.props;
     const { value } = this.state;
-
     return (
       <div className={b()}>
         <label className={b('label')}>
           {label}
-          <input type="number" className={b('input')} value={value} name={name} />
+          <input 
+            name={name} 
+            className={b('input')}
+            value={value}
+          />
           <div>
             <button
+              type="button"
               onClick={this.handleDecreseClick}
               className={b('button', { state: value === min ? 'disabled' : 'enabled'})}
             >-</button>
             <div className={b('value')}>{value}</div>
             <button
+              type="button"
               onClick={this.handleIncreseClick}
               className={b('button', { state: value === max ? 'disabled' : 'enabled'})}
             >+</button>
           </div>
         </label>  
-      </div>   
+      </div>
     );
   }
 
   @autobind
   handleIncreseClick() {
     const { value } = this.state;
-    const { onChange, max } = this.props;
+    const { max, onChange } = this.props;
     if (value === max) { return };
     this.setState({ value: value + 1 });
     if (onChange) { onChange(value + 1); };
@@ -64,7 +69,7 @@ class NumberInput extends React.Component<Props, State> {
   @autobind
   handleDecreseClick() {
     const { value } = this.state;
-    const { onChange, min } = this.props;
+    const { min, onChange } = this.props;
     if (value === min) { return };
     this.setState({ value: value - 1 });
     if (onChange) { onChange(value - 1); };

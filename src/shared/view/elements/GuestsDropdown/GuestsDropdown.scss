@@ -1,0 +1,14 @@
+@import '~shared/styles/mixins';
+
+.guests-dropdown {
+  display: block;
+
+  &__field {
+    margin-bottom: 5px;
+  }
+
+  &__button {
+    margin-top: 15px;
+    text-align: right;
+  }
+}
