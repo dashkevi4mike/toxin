@@ -1,0 +1,46 @@
+@import '~shared/styles/mixins';
+
+.number-input {
+  position: relative;
+  display: block;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $darkShade100;
+
+    @include font('h3');
+  }
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $darkShade25;
+    border-radius: 50%;
+    color: $darkShade50;
+
+    &_state_disabled {
+      border: 1px solid $darkShade5;
+      color: $darkShade25;
+    }
+
+    &_state_enabled {
+      cursor: pointer;
+    }
+  }
+
+  &__value {
+    display: inline-block;
+    width: 32px;
+    text-align: center;
+  }
+}
