@@ -3,6 +3,7 @@ export { Input } from './Input/Input';
 export { EmailInput } from './Input/EmailInput';
 export { PasswordInput } from './Input/PasswordInput';
 export { MaskedInput } from './Input/MaskedInput';
+export { NumberInput } from './NumberInput/NumberInput';
 export { Logo } from './Logo/Logo';
 export { SocialLinks } from './SocialLinks/SocialLinks';
 export { Divider } from './Divider/Divider';

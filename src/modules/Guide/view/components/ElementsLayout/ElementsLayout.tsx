@@ -11,7 +11,7 @@ import {
   Input, EmailInput, PasswordInput, MaskedInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
-  Text, RangeSlider, BulletList, Dropdown
+  Text, RangeSlider, BulletList, Dropdown, NumberInput
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -221,6 +221,21 @@ function ElementsLayoutComponent(_props: Props) {
                 placeholder="Who with you?"
                 disabled
               />
+            </div>
+            <div className={b('element')}>
+              <Dropdown
+                label="dropdown with form"
+                placeholder="Who with you?"
+              >
+                <NumberInput
+                  name="adult"
+                  label="Adults"
+                  min={1}
+                  max={4}
+                  initialValue={1}
+                  onChange={()=>{}}
+                />
+              </Dropdown>
             </div>
           </div>
           <div className={b('column')}>
