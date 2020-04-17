@@ -12,7 +12,7 @@ function getFieldWithComponent<P extends BaseWrappedFieldProps>(
   Component: React.ComponentType<P>,
 ) {
 
-  const result: React.StatelessComponent<any> = (props: any) => (
+  const result: React.StatelessComponent<any> = (props: any) => ( //todo fix any typings
     <Field {...props}>
       {prs => (
         <Component {...prs as any } {...prs.input} />
