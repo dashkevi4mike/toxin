@@ -1,9 +1,10 @@
 import React from 'react';
-import { Field, FieldRenderProps, FieldProps as RFFieldProps } from 'react-final-form';
+import { Field, FieldProps as RFFieldProps } from 'react-final-form';
 // eslint-disable-next-line import/no-unresolved
 import { MergeRight } from '_helpers';
 
-type BaseWrappedFieldProps = FieldRenderProps<any> & {
+
+type BaseWrappedFieldProps = {
   value?: any;
   onChange?: any;
 };
