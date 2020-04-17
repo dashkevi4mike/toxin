@@ -1,4 +1,5 @@
 export { Button } from './Button/Button';
+export { TextButton } from './TextButton/TextButton';
 export { Input } from './Input/Input';
 export { EmailInput } from './Input/EmailInput';
 export { PasswordInput } from './Input/PasswordInput';
@@ -18,3 +19,5 @@ export { Text } from './Text/Text';
 export { BulletList } from './BulletList/BulletList';
 export { RangeSlider } from './RangeSlider/RangeSlider';
 export { Dropdown } from './Dropdown/Dropdown';
+export { SelfControlledDropdown } from './Dropdown/SelfControlledDropdown';
+export { GuestsDropdown } from './GuestsDropdown/GuestsDropdown';

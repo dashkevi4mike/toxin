@@ -10,6 +10,7 @@ type Props = {
   disabled?: boolean;
   onClick: () => void;
   theme: 'filled' | 'transparent';
+  type: 'button' | 'submit' | 'reset';
   children: React.ReactNode;
   fullWidth?: boolean;
 }

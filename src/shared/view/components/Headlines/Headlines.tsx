@@ -1,7 +1,7 @@
 import React from 'react';
 import block from 'bem-cn';
 
-import { Headline } from '../Headline/Headline';
+import { Headline } from 'shared/view/elements/Headline/Headline';
 import { HeadlineType } from 'shared/types/models'
 
 import './Headlines.scss';

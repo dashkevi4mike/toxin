@@ -26,7 +26,8 @@
     height: 30px;
     border: 1px solid $darkShade25;
     border-radius: 50%;
-    color: $darkShade50;
+
+    @include font('p');
 
     &_state_disabled {
       border: 1px solid $darkShade5;
@@ -34,6 +35,7 @@
     }
 
     &_state_enabled {
+      color: $darkShade50;
       cursor: pointer;
     }
   }

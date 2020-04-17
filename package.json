@@ -190,7 +190,7 @@
     "rc-tooltip": "^4.0.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-final-form": "^4.0.2",
+    "react-final-form": "^4.1.0",
     "react-helmet": "^5.2.0",
     "react-i18next": "^10.6.2",
     "react-number-format": "^4.0.6",
