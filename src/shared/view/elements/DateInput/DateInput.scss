@@ -1,0 +1,13 @@
+@import '~shared/styles/mixins';
+
+.date-input {
+  position: relative;
+  display: block;
+
+  &__picker {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+}

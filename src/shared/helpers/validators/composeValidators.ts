@@ -1,4 +1,4 @@
-type Validator = (value: string, allValues?: object) =>
+export type Validator = (value: string, allValues?: object) =>
 string | undefined;
 
 export function composeValidators(validators: Validator[]) {

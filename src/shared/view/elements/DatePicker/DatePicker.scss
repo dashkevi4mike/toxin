@@ -1,0 +1,16 @@
+@import '~shared/styles/mixins';
+
+.date-picker {
+  background-color: white;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

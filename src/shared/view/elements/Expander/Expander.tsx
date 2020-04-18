@@ -2,6 +2,8 @@ import React from 'react';
 import block from 'bem-cn';
 import { autobind } from 'core-decorators';
 
+import { ExpandIcon } from '../ExpandIcon/ExpandIcon';
+
 import './Expander.scss';
 
 const b = block('expander');
@@ -34,7 +36,7 @@ class Expander extends React.Component<Props, State> {
       <div className={b()}>
         <div className={b('header')} onClick={this.handleClick}>
           <h3 className={b('title')}>{title}</h3>
-          <img className={b('icon', { direction: isOpen ? 'reverse' : 'normal'})} src={require('./imgs/expand_more.svg')}/>
+          <ExpandIcon direction={isOpen ? 'less' : 'more'} />
         </div>
         <div className={b('content', { 'state': isOpen ? 'open' : 'closed' })}>
           <div className={b('content-inner')}>

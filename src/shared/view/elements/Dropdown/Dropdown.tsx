@@ -1,6 +1,8 @@
 import React from 'react';
 import block from 'bem-cn';
 
+import { ExpandIcon } from '../ExpandIcon/ExpandIcon';
+
 import './Dropdown.scss';
 
 const b = block('dropdown');
@@ -20,7 +22,7 @@ function Dropdown({ children, placeholder, label, disabled, onChange, isOpen }: 
       <h3 className={b('label')}>{label}</h3>
       <div className={b('header')} onClick={onChange}>
         <p className={b('placeholder')}>{placeholder}</p>
-        <img className={b('icon', { direction: isOpen ? 'reverse' : 'normal'})} src={require('./imgs/expand_more.svg')}/>
+        <ExpandIcon direction={isOpen ? 'less' : 'more'} />
       </div>
       <div className={b('content', { 'state': isOpen ? 'open' : 'closed' })}>
         <div className={b('content-inner')}>
