@@ -25,6 +25,7 @@
 
   &__header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 15px;
     border: 1px solid $darkShade50;
@@ -43,14 +44,6 @@
     color: $darkShade75;
 
     @include font('p');
-  }
-
-  &__icon {
-    transition: transform 0.5s;
-  }
-
-  &__icon_direction_reverse {
-    transform: rotate(180deg);
   }
 
   &_state_disabled &__header {

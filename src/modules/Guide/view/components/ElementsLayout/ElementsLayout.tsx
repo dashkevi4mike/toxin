@@ -8,11 +8,11 @@ import { Layout } from '../../../../shared';
 import { routes } from 'modules/routes';
 
 import { 
-  Input, EmailInput, PasswordInput, MaskedInput,
+  Input, EmailInput, PasswordInput,
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
   Text, RangeSlider, BulletList, SelfControlledDropdown, 
-  GuestsDropdown, TextButton
+  GuestsDropdown, TextButton, DateInput,
 } from 'shared/view/elements';
 
 import './ElementsLayout.scss';
@@ -124,7 +124,7 @@ function ElementsLayoutComponent(_props: Props) {
               />
             </div>
             <div className={b('element')}>
-              <MaskedInput
+              <Input
                 placeholder="DD.MM.YYYY"
                 name="date"
                 label="Masked Date Field"
@@ -135,7 +135,7 @@ function ElementsLayoutComponent(_props: Props) {
               />
             </div>
             <div className={b('element')}>
-              <MaskedInput
+              <Input
                 placeholder="Card number"
                 name="card"
                 label="Masked Card Number Field"
@@ -145,8 +145,44 @@ function ElementsLayoutComponent(_props: Props) {
                 validateOnChange={false}
               />
             </div>
+            <div className={b('element')}>
+              <GuestsDropdown onChange={() => {}} />
+            </div>
+            <div className={b('element')}>
+              <SelfControlledDropdown
+                label="dropdown"
+                placeholder="Who with you?"
+              >
+                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
+              </SelfControlledDropdown>
+            </div>
+            <div className={b('element')}>
+              <SelfControlledDropdown
+                label="disabled dropdown"
+                placeholder="Who with you?"
+                disabled
+              />
+            </div>
           </div>
           <div className={b('column')}>
+            <div className={b('element')}>
+              <DateInput
+                name="dayP1"
+                label="day picker with enable past days"
+                isRequired
+                onChange={()=>{}}
+                isPastAllowed
+              />
+            </div>
+            <div className={b('element')}>
+              <DateInput
+                name="dayP2"
+                label="day picker with disabled past days"
+                isRequired
+                onChange={()=>{}}
+                isPastAllowed={false}
+              />
+            </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Checkbox</h3>
               <Checkbox
@@ -207,24 +243,6 @@ function ElementsLayoutComponent(_props: Props) {
               >
                 <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
               </Expander>
-            </div>
-            <div className={b('element')}>
-              <SelfControlledDropdown
-                label="dropdown"
-                placeholder="Who with you?"
-              >
-                <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
-              </SelfControlledDropdown>
-            </div>
-            <div className={b('element')}>
-              <SelfControlledDropdown
-                label="disabled dropdown"
-                placeholder="Who with you?"
-                disabled
-              />
-            </div>
-            <div className={b('element')}>
-              <GuestsDropdown onChange={() => {}} />
             </div>
           </div>
           <div className={b('column')}>
