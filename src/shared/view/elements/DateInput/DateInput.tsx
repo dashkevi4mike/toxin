@@ -7,6 +7,8 @@ import { Input } from '../Input/Input';
 import { DatePicker } from '../DatePicker/DatePicker';
 import { ExpandIcon } from '../ExpandIcon/ExpandIcon';
 
+import { makeDateValidator, makePastDateValidator } from 'shared/helpers/validators';
+
 import './DateInput.scss';
 
 const b = block('date-input');
@@ -25,6 +27,9 @@ type State = {
   isOpen: boolean;
 }
 
+const validators = [ makeDateValidator('Invalid date') ];
+const validatorsWithPastDate = [ makeDateValidator('Invalid date'), makePastDateValidator('past day is not allowed') ];
+
 class DateInput extends React.Component<Props, State> {
   public state = { isOpen: false, date: undefined };
 
@@ -36,16 +41,17 @@ class DateInput extends React.Component<Props, State> {
       <div className={b()}>
         <div className={b('input')}>
           <Input
-            placeholder="DD.MM.YYYY"
+            placeholder="MM.DD.YYYY"
             name={name}
             label={label}
-            maskType="date"
-            isRequired={isRequired}
+            mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
+            validators={isPastAllowed ? validators : validatorsWithPastDate}
             onChange={this.handleInputChange}
             validateOnChange={false}
             icon={<ExpandIcon direction={isOpen ? 'less' : 'more'} />}
             onIconClick={this.handleChangeState}
             value={date ? date : undefined}
+            isRequired={isRequired}
           />
         </div>
         { isOpen ? (
@@ -75,7 +81,7 @@ class DateInput extends React.Component<Props, State> {
 
   @autobind
   private handleSelectDay(day: Date) {
-    const date = dayjs(day).format('DD.MM.YYYY');
+    const date = dayjs(day).format('MM.DD.YYYY');
     this.setState({ isOpen: false, date });
   }
 }

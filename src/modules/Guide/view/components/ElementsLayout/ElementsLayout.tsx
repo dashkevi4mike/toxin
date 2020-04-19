@@ -15,6 +15,8 @@ import {
   GuestsDropdown, TextButton, DateInput,
 } from 'shared/view/elements';
 
+import { makeCardValidator, makeDateValidator } from 'shared/helpers/validators';
+
 import './ElementsLayout.scss';
 
 type Props = {};
@@ -86,9 +88,9 @@ function ElementsLayoutComponent(_props: Props) {
                 name="name"
                 label="text field"
                 placeholder="Name"
-                isRequired
                 onChange={()=>{}}
                 validateOnChange
+                isRequired
               />
             </div>
             <div className={b('element')}>
@@ -96,9 +98,9 @@ function ElementsLayoutComponent(_props: Props) {
                 name="email"
                 label="email field"
                 placeholder="Email"
-                isRequired
                 onChange={()=>{}}
                 validateOnChange
+                isRequired
               />
             </div>
             <div className={b('element')}>
@@ -106,9 +108,9 @@ function ElementsLayoutComponent(_props: Props) {
                 name="password"
                 label="Password field"
                 placeholder="Password"
-                isRequired
                 onChange={()=>{}}
                 validateOnChange
+                isRequired
               />
             </div>
             <div className={b('element')}>
@@ -116,11 +118,11 @@ function ElementsLayoutComponent(_props: Props) {
                 name="email"
                 label="Subscription Text Field"
                 placeholder="Email"
-                isRequired
                 icon={<ArrowForward />}
                 onChange={()=>{}}
                 onIconClick={()=>{}}
                 validateOnChange
+                isRequired
               />
             </div>
             <div className={b('element')}>
@@ -128,10 +130,11 @@ function ElementsLayoutComponent(_props: Props) {
                 placeholder="DD.MM.YYYY"
                 name="date"
                 label="Masked Date Field"
-                maskType="date"
+                mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
                 isRequired
                 onChange={()=>{}}
                 validateOnChange={false}
+                validators={[ makeDateValidator('Invalid date') ]}
               />
             </div>
             <div className={b('element')}>
@@ -139,10 +142,11 @@ function ElementsLayoutComponent(_props: Props) {
                 placeholder="Card number"
                 name="card"
                 label="Masked Card Number Field"
-                maskType="visa"
+                mask={[/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
                 isRequired
                 onChange={()=>{}}
                 validateOnChange={false}
+                validators={[makeCardValidator('Invalid card')]}
               />
             </div>
             <div className={b('element')}>

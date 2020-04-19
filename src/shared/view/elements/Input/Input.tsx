@@ -4,32 +4,18 @@ import { autobind } from 'core-decorators';
 
 import ReactMaskedInput from 'react-text-mask';
 
-import { composeValidators, makeRequired, makeCardValidator, makeDateValidator, Validator } from 'shared/helpers/validators';
+import { composeValidators, makeRequired, Validator } from 'shared/helpers/validators';
 
 import './Input.scss';
 
 const b = block('input');
-
-
-type MaskType = 'visa' | 'date';
-
-export const validatorsByMaskType: { [key in MaskType]: Validator[]} = {
-  visa: [ makeCardValidator('Invalid card') ],
-  date: [ makeDateValidator('Invalid date') ],
-};
-
-const maskByType: { [key in MaskType]: Array<RegExp | string>} = {
-  visa: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/],
-  date: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/],
-};
-
 
 type Props = {
   name: string;
   id?: string;
   placeholder: string;
   label: string;
-  maskType?: MaskType;
+  mask?: Array<RegExp | string>;
   onChange: (value: string | number) => void;
   validateOnChange: boolean;
   validators?: Validator[];
@@ -37,12 +23,10 @@ type Props = {
   value?: string;
   icon?: React.ReactElement;
   error?: string;
-  innerRef?: any;
-  isRequired?: boolean;
   onIconClick?: () => void;
-  validate?: () => void;
   onFocus?: () => void;
   onBlur?: () => void;
+  isRequired?: boolean;
 }
 
 type State = {
@@ -51,6 +35,13 @@ type State = {
 
 class Input extends React.Component<Props, State> {
   public state = { error: undefined };
+
+  componentDidUpdate(prevProps: Props) {
+    const { value } = this.props;
+    if (prevProps.value !== value && value) {
+      this.validate(value);
+    }
+  }
 
   render() {
     const {
@@ -80,14 +71,13 @@ class Input extends React.Component<Props, State> {
       type,
       placeholder,
       id,
-      innerRef,
       value,
-      maskType
+      mask
     } = this.props;
-    if (maskType) {
+    if (mask) {
       return (
         <ReactMaskedInput
-          mask={maskByType[maskType]}
+          mask={mask}
           type="text"
           value={value}
           name={name}
@@ -104,7 +94,6 @@ class Input extends React.Component<Props, State> {
           className={b('input')}
           name={name}
           id={id}
-          ref={innerRef}
           placeholder={placeholder}
           type={type ? type : 'text'}
           onChange={this.handleChange}
@@ -124,7 +113,7 @@ class Input extends React.Component<Props, State> {
   }
 
   @autobind
-  private handleChange(event: any) {
+  private handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { onChange, validateOnChange } = this.props;
     if (validateOnChange) { this.validate(event.currentTarget.value) };
     if (onChange) { onChange(event.currentTarget.value) }
@@ -137,19 +126,10 @@ class Input extends React.Component<Props, State> {
   }
 
   private validate(value: string) {
-    const { isRequired, validators, maskType } = this.props;
-    let allValidators: Validator[] = [];
-    if (isRequired) {
-      allValidators = allValidators.concat([ makeRequired() ]);
-    }
-    if (validators) {
-      allValidators = allValidators.concat(validators);
-    }
-    if (maskType) {
-      allValidators = allValidators.concat(validatorsByMaskType[maskType]);
-    }
+    const { validators = [], isRequired } = this.props;
+    let allValidators: Validator[] = isRequired ? validators.concat([ makeRequired()]) : validators;
     const validator = composeValidators(allValidators);
-    this.setState({ error: validator(value)});
+    this.setState({ error: validator(value) });
   }
 }
 
