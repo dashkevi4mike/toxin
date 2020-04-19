@@ -1,15 +1,15 @@
+import dayjs from 'dayjs';
+
 const validateDate = (date: string, error: string): string | undefined => {
-    if (!date) {
-      return error;
-    }
-    // tslint:disable-next-line:max-line-length
-    const re = /\d\d.\d\d.\d\d\d\d/;
-    const isValid = re.test(String(date).toLowerCase());
-    if (!isValid) {
-      return error;
-    }
+  if (!date) {
     return undefined;
-  };
+  }
   
-  export const makeDateValidator = (error = 'Invalid date') => (date: string) => validateDate(date, error);
-  
+  const isValid = dayjs(date).isValid()
+  if (!isValid) {
+    return error;
+  }
+  return undefined;
+};
+
+export const makeDateValidator = (error = 'Invalid date') => (date: string) => validateDate(date, error);

@@ -4,3 +4,4 @@ export * from './minCharacters';
 export * from './email';
 export * from './card';
 export * from './date';
+export * from './pastDate';

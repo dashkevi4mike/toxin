@@ -1,6 +1,6 @@
 const validateCard = (card: string, error: string): string | undefined => {
     if (!card) {
-      return error;
+      return undefined;
     }
     // tslint:disable-next-line:max-line-length
     const re = /\d\d\d\d \d\d\d\d \d\d\d\d \d\d\d\d/;
