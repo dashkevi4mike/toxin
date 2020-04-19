@@ -1,0 +1,30 @@
+@import '~shared/styles/mixins';
+
+.date-picker-nav {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  &__next {
+    right: 0;
+  }
+
+  &__previous {
+    left: 0;
+  }
+
+  &__previous,
+  &__next {
+    position: absolute;
+    color: $purple100;
+
+    &_disabled {
+      color: $darkShade50;
+    }
+
+    &:hover {
+      opacity: 0.75;
+      cursor: pointer;
+    }
+  }
+}

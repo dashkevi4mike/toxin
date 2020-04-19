@@ -167,10 +167,20 @@ function ElementsLayoutComponent(_props: Props) {
           <div className={b('column')}>
             <div className={b('element')}>
               <DateInput
-                name="dateP"
-                label="date picker"
+                name="dayP1"
+                label="day picker with enable past days"
                 isRequired
                 onChange={()=>{}}
+                isPastAllowed
+              />
+            </div>
+            <div className={b('element')}>
+              <DateInput
+                name="dayP2"
+                label="day picker with disabled past days"
+                isRequired
+                onChange={()=>{}}
+                isPastAllowed={false}
               />
             </div>
             <div className={b('element')}>

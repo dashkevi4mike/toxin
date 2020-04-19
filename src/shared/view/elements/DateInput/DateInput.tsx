@@ -17,6 +17,7 @@ type Props = {
   isRequired?: boolean;
   label: string;
   onChange?: (value: string) => void;
+  isPastAllowed: boolean;
 }
 
 type State = {
@@ -28,7 +29,7 @@ class DateInput extends React.Component<Props, State> {
   public state = { isOpen: false, date: undefined };
 
   render() {
-    const { label, name, isRequired } = this.props;
+    const { label, name, isRequired, isPastAllowed } = this.props;
     const { isOpen, date } = this.state;
 
     return (
@@ -47,11 +48,12 @@ class DateInput extends React.Component<Props, State> {
             value={date ? date : undefined}
           />
         </div>
-        {isOpen ? (
+        { isOpen ? (
           <div className={b('picker')}>
             <DatePicker
               onDaySelect={this.handleSelectDay}
               close={this.handleChangeState}
+              isPastAllowed={isPastAllowed}
               withSubmition
             />
           </div>
