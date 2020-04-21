@@ -9,9 +9,9 @@ import { ExpandIcon } from '../ExpandIcon/ExpandIcon';
 
 import { makeDateValidator, makePastDateValidator } from 'shared/helpers/validators';
 
-import './DateInput.scss';
+import './DatesFilterInput.scss';
 
-const b = block('date-input');
+const b = block('dates-filter-input');
 
 type Props = {
   name: string;
@@ -23,44 +23,47 @@ type Props = {
 }
 
 type State = {
-  date: string | undefined;
+  startDate: string | undefined;
+  endDate: string | undefined;
+  value: string | undefined;
   isOpen: boolean;
 }
 
-const validators = [ makeDateValidator('Invalid date') ];
-const validatorsWithPastDate = [ makeDateValidator('Invalid date'), makePastDateValidator('past day is not allowed') ];
+const validators = [ ];
+const validatorsWithPastDate = [ makePastDateValidator('past day is not allowed') ];
 
-class DateInput extends React.Component<Props, State> {
-  public state = { isOpen: false, date: undefined };
+class DatesFilterInput extends React.Component<Props, State> {
+  public state = { isOpen: false, value: '', startDate: '', endDate: '' };
 
   render() {
     const { label, name, isRequired, isPastAllowed } = this.props;
-    const { isOpen, date } = this.state;
+    const { isOpen, value } = this.state;
 
     return (
       <div className={b()}>
         <div className={b('input')}>
           <Input
-            placeholder="MM.DD.YYYY"
+            placeholder="MM.DD.YYYY-MM.DD.YYYY"
             name={name}
             label={label}
-            mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
+            mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
             validators={isPastAllowed ? validators : validatorsWithPastDate}
             onChange={this.handleInputChange}
             validateOnChange={false}
             icon={<ExpandIcon direction={isOpen ? 'less' : 'more'} />}
             onIconClick={this.handleChangeState}
-            value={date ? date : undefined}
+            value={value ? value : undefined}
             isRequired={isRequired}
           />
         </div>
         { isOpen ? (
           <div className={b('picker')}>
             <DatePicker
-              onSelect={this.handleSelectDay}
+              onSelect={this.handleSelectDays}
               close={this.handleChangeState}
               isPastAllowed={isPastAllowed}
               withSubmition
+              periodPicker
             />
           </div>
         ) : null}
@@ -70,7 +73,7 @@ class DateInput extends React.Component<Props, State> {
 
   @autobind
   private handleInputChange(value: string) {
-    this.setState({ date: value });
+    this.setState({ value });
   }
 
   @autobind
@@ -80,11 +83,13 @@ class DateInput extends React.Component<Props, State> {
   }
 
   @autobind
-  private handleSelectDay([ day ]: Date[]) {
-    const date = dayjs(day).format('MM.DD.YYYY');
-    this.setState({ isOpen: false, date });
+  private handleSelectDays([ startDate, endDate ]: Date[]) {
+    const sDate = dayjs(startDate).format('MM.DD.YYYY');
+    const eDate = dayjs(endDate).format('MM.DD.YYYY');
+
+    this.setState({ isOpen: false, startDate: sDate, endDate: eDate, value: `${sDate}-${eDate}` });
   }
 }
 
-export { DateInput, Props };
+export { DatesFilterInput, Props };
       

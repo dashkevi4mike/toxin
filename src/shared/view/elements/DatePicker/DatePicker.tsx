@@ -7,6 +7,7 @@ import 'react-day-picker/lib/style.css';
 
 import { TextButton } from '../TextButton/TextButton';
 import { DatePickerNav, Props as DatePickerNavProps } from '../DatePickerNav/DatePickerNav';
+import { PickerDay, Props as PickerDayProps } from '../PickerDay/PickerDay';
 
 import './DatePicker.scss';
 
@@ -14,13 +15,15 @@ const b = block('date-picker');
 
 type Props = {
   close: () => void;
-  onDaySelect: (value: Date) => void;
+  onSelect: (values: Date[]) => void;
   withSubmition: boolean;
   isPastAllowed: boolean;
+  periodPicker?: boolean;
 }
 
 type State = {
-  date?: Date;
+  startDate?: Date;
+  endDate?: Date;
 }
 
 const today = new Date();
@@ -29,24 +32,38 @@ class DatePicker extends React.Component<Props, State> {
   public state: State = {};
   
   render() {
-    const { withSubmition, onDaySelect, close, isPastAllowed } = this.props;
+    const { withSubmition, close, isPastAllowed, periodPicker } = this.props;
+    const { startDate, endDate } = this.state;
     return (
       <div className={b()}>
         <div className={b('inner')}>
           <DayPicker
-            onDayClick={withSubmition ? this.selectDay : onDaySelect}
+            onDayClick={this.handleSelect}
             navbarElement={this.renderNavigation}
+            renderDay={this.renderDay}
             modifiers={ { 
               selected: this.isSelected,
-              today: this.isToday,
-              disabled: !isPastAllowed ? this.isPreviousDay: undefined
+              today: (date: Date) => this.isEqualDays(today, date),
+              disabled: !isPastAllowed ? (date: Date) => this.isPreviousDay(today, date) : undefined,
+              highlighted: (date: Date) => Boolean(startDate && endDate && this.isPreviousOrEqualDay(date, startDate) && this.isPreviousOrEquealDay(endDate, date)),
+              startDay: (date: Date) => Boolean(startDate && this.isEqualDays(startDate, date)),
+              endDay: (date: Date) => Boolean(endDate && this.isEqualDays(endDate, date)),
             }} 
           />
         </div>
         {withSubmition ? (
           <div className={b('navigation')}>
-            <TextButton type="button" text="Close" onClick={close} />
-            <TextButton type="button" text="Apply changes" onClick={this.handleSubmit} />
+            <TextButton
+              type="button" 
+              text="Close" 
+              onClick={close}
+            />
+            <TextButton 
+              type="button" 
+              text="Apply changes" 
+              onClick={this.handleSubmit} 
+              disabled={periodPicker ? !(startDate && endDate) : !startDate} 
+            />
           </div>
         ) : null}
       </div>
@@ -54,14 +71,19 @@ class DatePicker extends React.Component<Props, State> {
   }
 
   @autobind
-  private isSelected(day: Date) {
-    const { date } = this.state;
-    return Boolean (date && this.isEqualDays(day, date));
+  private handleSelect(value: Date) {
+    const { withSubmition, onSelect } = this.props;
+    withSubmition ? this.selectDay(value) : onSelect([ value ]);
   }
 
   @autobind
-  private isToday(day: Date) {
-    return this.isEqualDays(today, day);
+  private isSelected(day: Date) {
+    const { periodPicker } = this.props;
+    const { startDate, endDate } = this.state;
+
+    return !periodPicker ?
+      Boolean(startDate && this.isPreviousOrEqualDay(day, startDate))
+      : (Boolean(startDate && this.isPreviousOrEqualDay(day, startDate)) || Boolean(endDate && this.isPreviousOrEqualDay(day, endDate)));
   }
 
   private isEqualDays(day1: Date, day2: Date) {
@@ -70,29 +92,47 @@ class DatePicker extends React.Component<Props, State> {
       day1.getFullYear() == day2.getFullYear()
   }
 
-  private isPreviousDay(day: Date) {
-    return today > day;
+  private isPreviousOrEqualDay(date1: Date, date2: Date) {
+    return date1 >= date2;
+  }
+
+  private isPreviousDay(date1: Date, date2: Date) {
+    return date1 > date2;
   }
 
   @autobind
   private selectDay(date: Date) {
-    const { isPastAllowed } = this.props;
-    if(isPastAllowed || !this.isPreviousDay(date)) {
-      this.setState({ date });
+    const { isPastAllowed, periodPicker } = this.props;
+    const { startDate, endDate } = this.state;
+    if(isPastAllowed || !this.isPreviousDay(today, date)) {
+      if(!periodPicker) {
+        this.setState({ startDate: date, endDate: undefined });
+      } else {
+        if (startDate && !endDate && this.isPreviousDay(date, startDate)) {
+          this.setState({ startDate, endDate: date });
+        } else {
+          this.setState({ startDate: date, endDate: undefined });
+        }
+      }
     }
   }
 
   @autobind
   private handleSubmit() {
-    const { onDaySelect } = this.props;
-    const { date } = this.state;
-    return date ? onDaySelect(date) : null;
+    const { onSelect, periodPicker } = this.props;
+    const { startDate, endDate } = this.state;
+    if (!periodPicker && startDate) { onSelect([ startDate ]) }
+    if (periodPicker && startDate && endDate) { onSelect([ startDate, endDate ]) }
   }
 
   private renderNavigation(props: DatePickerNavProps) {
     return (
       <DatePickerNav {...props} />
     );
+  }
+
+  private renderDay(date: PickerDayProps['date'], modifiers: PickerDayProps['modifiers']) {
+    return (<PickerDay date={date} modifiers={modifiers} />);
   }
 }
 

@@ -1,0 +1,47 @@
+@import '~shared/styles/mixins';
+
+.picker-day {
+  width: 100%;
+  height: 100%;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 50%;
+
+    .DayPicker-Day--disabled & {
+      color: $darkShade25;
+    }
+
+    .DayPicker-Day--today:not(.DayPicker-Day--outside) & {
+      background-color: $green100;
+      color: white;
+    }
+
+    .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) & {
+      background-color: $purple100;
+      color: white;
+    }
+
+    .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover & {
+      background-color: $purple100;
+      color: white;
+    }
+  }
+
+  .DayPicker-Day--highlighted & {
+    background-color: $purple25;
+  }
+
+  .DayPicker-Day--startDay & {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  .DayPicker-Day--endDay & {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
