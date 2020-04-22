@@ -22,4 +22,5 @@ export { SelfControlledDropdown } from './Dropdown/SelfControlledDropdown';
 export { GuestsDropdown } from './GuestsDropdown/GuestsDropdown';
 export { DatePicker } from './DatePicker/DatePicker';
 export { DateInput } from './DateInput/DateInput';
+export { DatesFilterInput } from './DatesFilterInput/DatesFilterInput';
 export { ExpandIcon } from './ExpandIcon/ExpandIcon';

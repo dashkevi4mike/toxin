@@ -18,6 +18,8 @@
   }
 
   & .DayPicker-Day {
+    padding: 0;
+    border-radius: 0;
     color: $darkShade50;
 
     @include font('calendar');
@@ -48,22 +50,11 @@
     height: 40px;
   }
 
-  & .DayPicker-Day--disabled {
-    color: $darkShade25;
+  & .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    background-color: initial;
   }
 
   & .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    background-color: $purple100;
-    color: white;
-  }
-
-  & .DayPicker-Day--today:not(.DayPicker-Day--outside) {
-    background-color: $green100;
-    color: white;
-  }
-
-  & .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-    background-color: $purple100;
-    color: white;
+    background-color: initial;
   }
 }

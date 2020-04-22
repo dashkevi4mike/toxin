@@ -23,15 +23,15 @@ type Props = {
 }
 
 type State = {
-  date: string | undefined;
+  date: string;
   isOpen: boolean;
 }
 
 const validators = [ makeDateValidator('Invalid date') ];
-const validatorsWithPastDate = [ makeDateValidator('Invalid date'), makePastDateValidator('past day is not allowed') ];
+const validatorsWithPastDate = [ makeDateValidator('Invalid date'), makePastDateValidator('Past day is not allowed') ];
 
 class DateInput extends React.Component<Props, State> {
-  public state = { isOpen: false, date: undefined };
+  public state = { isOpen: false, date: '' };
 
   render() {
     const { label, name, isRequired, isPastAllowed } = this.props;
@@ -57,15 +57,25 @@ class DateInput extends React.Component<Props, State> {
         { isOpen ? (
           <div className={b('picker')}>
             <DatePicker
-              onDaySelect={this.handleSelectDay}
+              onSelect={this.handleSelectDay}
               close={this.handleChangeState}
               isPastAllowed={isPastAllowed}
               withSubmition
+              initialValues={this.getInitialValues()}
             />
           </div>
         ) : null}
       </div>
     );
+  }
+
+  private getInitialValues() {
+    const { date } = this.state;
+    return [ this.getDate(date) ];
+  }
+
+  private getDate(date: string) {
+    return date ? new Date(date) : undefined;
   }
 
   @autobind
@@ -80,7 +90,7 @@ class DateInput extends React.Component<Props, State> {
   }
 
   @autobind
-  private handleSelectDay(day: Date) {
+  private handleSelectDay([ day ]: Date[]) {
     const date = dayjs(day).format('MM.DD.YYYY');
     this.setState({ isOpen: false, date });
   }

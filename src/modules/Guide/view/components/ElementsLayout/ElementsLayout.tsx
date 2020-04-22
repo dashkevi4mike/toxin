@@ -12,7 +12,7 @@ import {
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
   Text, RangeSlider, BulletList, SelfControlledDropdown, 
-  GuestsDropdown, TextButton, DateInput,
+  GuestsDropdown, TextButton, DateInput, DatesFilterInput
 } from 'shared/view/elements';
 
 import { makeCardValidator, makeDateValidator } from 'shared/helpers/validators';
@@ -171,17 +171,17 @@ function ElementsLayoutComponent(_props: Props) {
           <div className={b('column')}>
             <div className={b('element')}>
               <DateInput
-                name="dayP1"
-                label="day picker with enable past days"
+                name="dayP2"
+                label="day picker with disabled past days"
                 isRequired
                 onChange={()=>{}}
-                isPastAllowed
+                isPastAllowed={false}
               />
             </div>
             <div className={b('element')}>
-              <DateInput
+              <DatesFilterInput
                 name="dayP2"
-                label="day picker with disabled past days"
+                label="day picker with select period"
                 isRequired
                 onChange={()=>{}}
                 isPastAllowed={false}

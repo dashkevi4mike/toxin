@@ -1,0 +1,47 @@
+@import '~shared/styles/mixins';
+
+.picker-day {
+  width: 100%;
+  height: 100%;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 50%;
+
+    &_disabled {
+      color: $darkShade25;
+    }
+
+    &_today:not(&_outside) {
+      background-color: $green100;
+      color: white;
+    }
+
+    &_selected:not(&_disabled):not(&_outside) {
+      background-color: $purple100;
+      color: white;
+    }
+
+    &:not(&_disabled):not(&_selected):not(&_outside):hover {
+      background-color: $purple100;
+      color: white;
+    }
+  }
+
+  &_highlighted {
+    background-color: $purple25;
+  }
+
+  &_start-day {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  &_end-day {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
