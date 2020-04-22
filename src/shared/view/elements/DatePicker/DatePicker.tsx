@@ -1,6 +1,7 @@
 import React from 'react';
 import block from 'bem-cn';
 import { autobind } from 'core-decorators';
+import dayjs from 'dayjs';
 
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -19,6 +20,7 @@ type Props = {
   withSubmition: boolean;
   isPastAllowed: boolean;
   periodPicker?: boolean;
+  initialValues?: Array<Date | undefined>;
 }
 
 type State = {
@@ -30,6 +32,11 @@ const today = new Date();
 
 class DatePicker extends React.Component<Props, State> {
   public state: State = {};
+
+  componentDidMount() {
+    const { initialValues: [ startDate, endDate ] = [] } = this.props;
+    this.setState({ startDate, endDate });
+  }
   
   render() {
     const { withSubmition, close, isPastAllowed, periodPicker } = this.props;
@@ -93,11 +100,11 @@ class DatePicker extends React.Component<Props, State> {
   }
 
   private isPreviousOrEqualDay(date1: Date, date2: Date) {
-    return date1 >= date2;
+    return dayjs(date1).startOf('day') >= dayjs(date2).startOf('day');
   }
 
   private isPreviousDay(date1: Date, date2: Date) {
-    return date1 > date2;
+    return dayjs(date1).startOf('day') > dayjs(date2).startOf('day');
   }
 
   @autobind

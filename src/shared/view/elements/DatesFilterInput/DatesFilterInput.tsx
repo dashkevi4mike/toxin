@@ -7,7 +7,7 @@ import { Input } from '../Input/Input';
 import { DatePicker } from '../DatePicker/DatePicker';
 import { ExpandIcon } from '../ExpandIcon/ExpandIcon';
 
-import { makeDateValidator, makePastDateValidator } from 'shared/helpers/validators';
+import { makePastDatesFilterValidator, makeDatePeriodValidator, Validator } from 'shared/helpers/validators';
 
 import './DatesFilterInput.scss';
 
@@ -23,14 +23,14 @@ type Props = {
 }
 
 type State = {
-  startDate: string | undefined;
-  endDate: string | undefined;
-  value: string | undefined;
+  startDate?: string;
+  endDate?: string;
+  value: string;
   isOpen: boolean;
 }
 
-const validators = [ ];
-const validatorsWithPastDate = [ makePastDateValidator('past day is not allowed') ];
+const validators: Validator[] = [ makeDatePeriodValidator('Invalid period')];
+const validatorsWithPastDate = [ makeDatePeriodValidator('Invalid period'), makePastDatesFilterValidator('Past day is not allowed') ];
 
 class DatesFilterInput extends React.Component<Props, State> {
   public state = { isOpen: false, value: '', startDate: '', endDate: '' };
@@ -64,6 +64,7 @@ class DatesFilterInput extends React.Component<Props, State> {
               isPastAllowed={isPastAllowed}
               withSubmition
               periodPicker
+              initialValues={this.getInitialValues()}
             />
           </div>
         ) : null}
@@ -71,9 +72,25 @@ class DatesFilterInput extends React.Component<Props, State> {
     );
   }
 
+  private getInitialValues() {
+    const { startDate, endDate } = this.state;
+    return [ this.getDate(startDate), this.getDate(endDate) ];
+  }
+
+  private getDate(date: string) {
+    return date && dayjs(date).isValid() ? new Date(date) : undefined;
+  }
+
   @autobind
   private handleInputChange(value: string) {
-    this.setState({ value });
+    const [ startDate, endDate ] = value.split('-');
+    const sDate = this.getDate(startDate);
+    const eDate = this.getDate(endDate);
+    this.setState({ 
+      value, 
+      startDate: sDate ? this.formatDate(sDate) : undefined,
+      endDate: eDate ? this.formatDate(eDate) : undefined,
+    });
   }
 
   @autobind
@@ -82,10 +99,14 @@ class DatesFilterInput extends React.Component<Props, State> {
     this.setState({ isOpen: !isOpen });
   }
 
+  private formatDate(date: Date) {
+    return dayjs(date).format('MM.DD.YYYY');
+  }
+
   @autobind
   private handleSelectDays([ startDate, endDate ]: Date[]) {
-    const sDate = dayjs(startDate).format('MM.DD.YYYY');
-    const eDate = dayjs(endDate).format('MM.DD.YYYY');
+    const sDate = this.formatDate(startDate);
+    const eDate = this.formatDate(endDate);
 
     this.setState({ isOpen: false, startDate: sDate, endDate: eDate, value: `${sDate}-${eDate}` });
   }
