@@ -13,13 +13,13 @@ type Props = {
 }
 
 function PickerDay(props: Props) {
-  const { date } = props;
+  const { date, modifiers } = props;
   return (
     <div
-      className={b()}
+      className={b({ ...modifiers })}
       role="gridcell"
     >
-      <div className={b('label')}>{date.getDate()}</div>
+      <div className={b('label', { ...modifiers })}>{date.getDate()}</div>
     </div>
   );
 }

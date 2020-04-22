@@ -45,9 +45,9 @@ class DatePicker extends React.Component<Props, State> {
               selected: this.isSelected,
               today: (date: Date) => this.isEqualDays(today, date),
               disabled: !isPastAllowed ? (date: Date) => this.isPreviousDay(today, date) : undefined,
-              highlighted: (date: Date) => Boolean(startDate && endDate && this.isPreviousOrEqualDay(date, startDate) && this.isPreviousOrEquealDay(endDate, date)),
-              startDay: (date: Date) => Boolean(startDate && this.isEqualDays(startDate, date)),
-              endDay: (date: Date) => Boolean(endDate && this.isEqualDays(endDate, date)),
+              highlighted: (date: Date) => Boolean(startDate && endDate && this.isPreviousOrEqualDay(date, startDate) && this.isPreviousOrEqualDay(endDate, date)),
+              'start-day': (date: Date) => Boolean(startDate && this.isEqualDays(startDate, date)),
+              'end-day': (date: Date) => Boolean(endDate && this.isEqualDays(endDate, date)),
             }} 
           />
         </div>
@@ -82,8 +82,8 @@ class DatePicker extends React.Component<Props, State> {
     const { startDate, endDate } = this.state;
 
     return !periodPicker ?
-      Boolean(startDate && this.isPreviousOrEqualDay(day, startDate))
-      : (Boolean(startDate && this.isPreviousOrEqualDay(day, startDate)) || Boolean(endDate && this.isPreviousOrEqualDay(day, endDate)));
+      Boolean(startDate && this.isEqualDays(day, startDate))
+      : (Boolean(startDate && this.isEqualDays(day, startDate)) || Boolean(endDate && this.isEqualDays(endDate, day)));
   }
 
   private isEqualDays(day1: Date, day2: Date) {

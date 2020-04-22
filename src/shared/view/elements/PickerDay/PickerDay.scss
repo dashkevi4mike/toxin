@@ -11,36 +11,36 @@
     height: 100%;
     border-radius: 50%;
 
-    .DayPicker-Day--disabled & {
+    &_disabled {
       color: $darkShade25;
     }
 
-    .DayPicker-Day--today:not(.DayPicker-Day--outside) & {
+    &_today:not(&_outside) {
       background-color: $green100;
       color: white;
     }
 
-    .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) & {
+    &_selected:not(&_disabled):not(&_outside) {
       background-color: $purple100;
       color: white;
     }
 
-    .DayPicker:not(.DayPicker--interactionDisabled) .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover & {
+    &:not(&_disabled):not(&_selected):not(&_outside):hover {
       background-color: $purple100;
       color: white;
     }
   }
 
-  .DayPicker-Day--highlighted & {
+  &_highlighted {
     background-color: $purple25;
   }
 
-  .DayPicker-Day--startDay & {
+  &_start-day {
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
   }
 
-  .DayPicker-Day--endDay & {
+  &_end-day {
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
   }
