@@ -62,12 +62,8 @@ function ColorsAndHeadlinesLayoutComponent(_props: Props) {
     <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
-          <div className={b('column')}>
-            <Colors colors={colors} />
-          </div>
-          <div className={b('column')}>
-            <Headlines headlines={headlines} />
-          </div>
+          <Headlines headlines={headlines} />
+          <Colors colors={colors} />
         </div>
       </div>
     </Layout>

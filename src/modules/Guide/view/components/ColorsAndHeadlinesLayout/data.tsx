@@ -27,14 +27,34 @@ export const colors: ColorType[] = [
     opacity: 0.05
   },
   {
-    name: 'Purple',
+    name: 'Purple 100%',
     hex: '#BC9CFF',
     opacity: 1
   },
   {
-    name: 'Green',
+    name: 'Purple 50%',
+    hex: '#BC9CFF',
+    opacity: 0.5
+  },
+  {
+    name: 'Purple 25%',
+    hex: '#BC9CFF',
+    opacity: 0.25
+  },
+  {
+    name: 'Green 100%',
     hex: '#6FCF97',
     opacity: 1
+  },
+  {
+    name: 'Green 50%',
+    hex: '#6FCF97',
+    opacity: 0.5
+  },
+  {
+    name: 'Green 25%',
+    hex: '#6FCF97',
+    opacity: 0.25
   },
   {
     name: 'Red',

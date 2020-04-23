@@ -5,21 +5,8 @@
   background-color: #ffff;
 
   &__inner {
-    display: flex;
-    justify-content: space-around;
     margin: 0 auto;
     max-width: 1200px;
     width: 90%;
-
-    @include breakpoint-down('md') {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  &__column {
-    @include breakpoint-down('md') {
-      margin-bottom: 30px;
-    }
   }
 }

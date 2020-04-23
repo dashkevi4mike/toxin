@@ -12,7 +12,7 @@ import {
   Checkbox, RadioGroup, ToggleButton,
   LikeButton, RateButton, Button, Expander,
   Text, RangeSlider, BulletList, SelfControlledDropdown, 
-  GuestsDropdown, TextButton, DateInput, DatesFilterInput
+  GuestsDropdown, TextButton, DateInput, DatesFilterInput, Pagination,
 } from 'shared/view/elements';
 
 import { makeCardValidator, makeDateValidator } from 'shared/helpers/validators';
@@ -247,6 +247,51 @@ function ElementsLayoutComponent(_props: Props) {
               >
                 <Text>Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.</Text>
               </Expander>
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Pagination when current page is first</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={1}
+                total={100}
+              />
+            </div>
+            <div className={b('element')}>
+            <h3 className={b('group-title')}>Pagination when current page is second</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={2}
+                total={100}
+              />
+            </div>
+            <div className={b('element')}>
+            <h3 className={b('group-title')}>Pagination when current page in middle</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={5}
+                total={100}
+              />
+            </div>
+            <div className={b('element')}>
+            <h3 className={b('group-title')}>Pagination when current page is pre last</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={8}
+                total={100}
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Pagination when current page is last</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={9}
+                total={100}
+              />
             </div>
           </div>
           <div className={b('column')}>
