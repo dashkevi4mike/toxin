@@ -1,0 +1,71 @@
+@import '~shared/styles/mixins';
+
+.pagination {
+  position: relative;
+  display: block;
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__page,
+  &__nav-button,
+  &__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &__page,
+  &__nav-button {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &_disabled {
+      cursor: initial;
+    }
+  }
+
+  &__nav-button {
+    background-color: $green100;
+    color: white;
+
+    &:not(&_disabled):hover {
+      background-color: $green50;
+    }
+
+    &_disabled {
+      background-color: $green25;
+    }
+  }
+
+  &__page {
+    background-color: transparent;
+
+    &_current {
+      background-color: $purple100;
+      color: white;
+
+      &:not(&_disabled):hover {
+        background-color: $purple50;
+      }
+    }
+  }
+
+  &__total {
+    margin-top: 15px;
+    color: $darkShade75;
+
+    @include font('p');
+  }
+
+  &__dots {
+    color: $darkShade75;
+
+    @include font('p');
+  }
+}
