@@ -1,10 +1,12 @@
 @import '~shared/styles/mixins';
 
 .colors {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 
   &__color {
     display: flex;
+    flex-basis: 300px;
     margin-bottom: 20px;
   }
 }
