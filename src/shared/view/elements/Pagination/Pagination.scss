@@ -46,6 +46,10 @@
   &__page {
     background-color: transparent;
 
+    &:not(&_current):not(&_disabled):hover {
+      color: $darkShade50;
+    }
+
     &_current {
       background-color: $purple100;
       color: white;
@@ -54,13 +58,6 @@
         background-color: $purple50;
       }
     }
-  }
-
-  &__total {
-    margin-top: 15px;
-    color: $darkShade75;
-
-    @include font('p');
   }
 
   &__dots {

@@ -15,46 +15,46 @@ type Props = {
   perPage: number;
 }
 
+const visibleButtonsCount = 3;
+
 class Pagination extends React.Component<Props> {
 
   render() {
-    const { currentPage, total } = this.props;
+    const { currentPage } = this.props;
     return (
       <div className={b()}>
         <div className={b('buttons')}>
           {
-            !this.lessOrEqualFirstPage(currentPage) 
+            this.shouldShowPreviousButton() 
               && <button type="button" className={b('nav-button')} onClick={() => this.handleClick(currentPage - 1)}>
               <ArrowBack />
             </button>
           }
-          { currentPage > 3 ? this.renderDots() : null } {/* because 3 buttons */}
+          { this.shouldShowDots('before') ? this.renderDots() : null }
           {
-            [0,1,2].map((_, index) => {
-              let value = currentPage + 2 > this.getTotalPages() ? (this.getTotalPages() - 2) : currentPage - 1;
-              value = currentPage === 1 ? 1 : value;
-              // value - number of the first button
-              return (this.lessFirstPage(value + index) || this.moreLastPage(value + index)) ? null :
+            Array(3, 1, 4).map((_, index) => {
+              const firstButtonNumber = this.getFirstButtonNumber();
+              const pageNumber = firstButtonNumber + index;
+              return this.shouldShowButton(firstButtonNumber, index) ? null :
                 <button 
                   className={b('page', {
-                    current: (currentPage !== 1 && index === 1 && currentPage !== this.getTotalPages()) || (currentPage === 1 && index === 0) || (currentPage === this.getTotalPages() && index === 2)
+                    current: this.isCurrentPageButton(index),
                   })}
-                  key={value + index}
-                  onClick={() => { this.handleClick(value + 1) }}
+                  key={pageNumber}
+                  onClick={() => { this.handleClick(pageNumber) }}
                 >
-                  {value + index}
+                  {pageNumber}
                 </button>
             })
           }
-          { currentPage < (this.getTotalPages() - 3) ? this.renderDots() : null } {/* because 3 buttons */}
+          { this.shouldShowDots('after') ? this.renderDots() : null }
           {
-            !this.moreOrEqualLastPage(currentPage) 
+            this.shouldShowNextButton() 
               && <button type="button" className={b('nav-button')} onClick={() => this.handleClick(currentPage + 1)}>
               <ArrowForward />
             </button>
           }
         </div>
-        <p className={b('total')}>{total} вариантов аренды</p>
       </div>   
     );
   }
@@ -70,6 +70,42 @@ class Pagination extends React.Component<Props> {
   private moreLastPage(page: number) {
     return this.getTotalPages() < page;
   }
+
+  private isCurrentPageButton(buttonIndex: number) {
+    const { currentPage } = this.props;
+    return (currentPage !== 1 && buttonIndex === 1 && currentPage !== this.getTotalPages())  // if button of current page in middle
+      || (currentPage === 1 && buttonIndex === 0) // if current page is first
+      || (currentPage === this.getTotalPages() && buttonIndex === 2); // if current page is last
+  }
+
+  private getFirstButtonNumber() {
+    const { currentPage } = this.props;
+    let value = currentPage + 2 > this.getTotalPages() ? (this.getTotalPages() - 2) : currentPage - 1;
+    value = currentPage === 1 ? 1 : value;
+    return value;
+  }
+
+  private shouldShowPreviousButton() {
+    const { currentPage } = this.props;
+    return !this.lessOrEqualFirstPage(currentPage);
+  }
+
+  private shouldShowButton(firstButtonNumber: number, buttonIndex: number) {
+    return (this.lessFirstPage(firstButtonNumber + buttonIndex) || this.moreLastPage(firstButtonNumber + buttonIndex))
+  }
+
+  private shouldShowNextButton() {
+    const { currentPage } = this.props;
+    return !this.moreOrEqualLastPage(currentPage);
+  }
+
+  private shouldShowDots(place: 'before' | 'after') {
+    const { currentPage } = this.props;
+    return (place === 'after' && currentPage < (this.getTotalPages() - visibleButtonsCount)) // last dots
+      || (place === 'before' && currentPage > visibleButtonsCount); // first dots
+  }
+
+
 
   private getTotalPages() {
     const { total, perPage } = this.props;
