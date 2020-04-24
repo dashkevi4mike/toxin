@@ -167,26 +167,6 @@ function ElementsLayoutComponent(_props: Props) {
                 disabled
               />
             </div>
-          </div>
-          <div className={b('column')}>
-            <div className={b('element')}>
-              <DateInput
-                name="dayP2"
-                label="day picker with disabled past days"
-                isRequired
-                onChange={()=>{}}
-                isPastAllowed={false}
-              />
-            </div>
-            <div className={b('element')}>
-              <DatesFilterInput
-                name="dayP2"
-                label="day picker with select period"
-                isRequired
-                onChange={()=>{}}
-                isPastAllowed={false}
-              />
-            </div>
             <div className={b('element')}>
               <h3 className={b('group-title')}>Checkbox</h3>
               <Checkbox
@@ -225,6 +205,26 @@ function ElementsLayoutComponent(_props: Props) {
                 initialCount={3}
                 totalCount={5}
                 onChange={() => {}}
+              />
+            </div>
+          </div>
+          <div className={b('column')}>
+            <div className={b('element')}>
+              <DateInput
+                name="dayP2"
+                label="day picker with disabled past days"
+                isRequired
+                onChange={()=>{}}
+                isPastAllowed={false}
+              />
+            </div>
+            <div className={b('element')}>
+              <DatesFilterInput
+                name="dayP2"
+                label="day picker with select period"
+                isRequired
+                onChange={()=>{}}
+                isPastAllowed={false}
               />
             </div>
             <div className={b('element')}>
@@ -291,6 +291,15 @@ function ElementsLayoutComponent(_props: Props) {
                 perPage={12}
                 currentPage={9}
                 total={100}
+              />
+            </div>
+            <div className={b('element')}>
+              <h3 className={b('group-title')}>Pagination for only 2 pages</h3>
+              <Pagination
+                onChange={()=>{}}
+                perPage={12}
+                currentPage={2}
+                total={25}
               />
             </div>
           </div>

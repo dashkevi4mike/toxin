@@ -60,13 +60,6 @@
     }
   }
 
-  &__total {
-    margin-top: 15px;
-    color: $darkShade75;
-
-    @include font('p');
-  }
-
   &__dots {
     color: $darkShade75;
 
