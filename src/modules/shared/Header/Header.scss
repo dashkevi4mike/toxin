@@ -2,16 +2,15 @@
 
 .header {
   display: block;
-  height: 70px;
+  height: $headerHeight;
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 90%;
     height: 100%;
+
+    @include layout();
   }
 
   &__expand {
