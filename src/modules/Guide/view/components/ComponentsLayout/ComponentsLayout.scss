@@ -1,11 +1,12 @@
+@import '~shared/styles/mixins';
+
 .components-layout {
+  padding: 50px 0;
   width: 100%;
   background-color: #ffff;
 
   &__inner {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 90%;
+    @include layout();
   }
 
   &__row {

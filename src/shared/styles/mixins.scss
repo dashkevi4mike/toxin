@@ -49,3 +49,9 @@
   font-family: map-get($fontObj, 'family');
   line-height: map-get($fontObj, 'lineHeight');
 }
+
+@mixin layout() {
+  margin: 0 auto;
+  max-width: $layoutMaxWidth;
+  width: 90%;
+}
