@@ -1,4 +1,4 @@
-import { put, call, take, takeLatest, all } from 'redux-saga/effects';
+import { put, call, takeLatest, all } from 'redux-saga/effects';
 
 import { IDependencies } from 'shared/types/app';
 import { getErrorMsg } from 'shared/helpers/getErrorMsg';

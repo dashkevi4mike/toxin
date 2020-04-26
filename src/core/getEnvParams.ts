@@ -10,7 +10,7 @@ export function getEnvParams() {
   const chunkHash = isWatchMode && !isProduction ? 'hash' : 'chunkhash';
   const withHot = isWatchMode && isDevelopment;
   const appVersion = appInfo.version;
-  const apiHost = process.env.API_HOST;
+  const apiHost = process.env.API_HOST || '';
   const localStorageVersion = process.env.LOCAL_STORAGE_VERSION || '1.0';
 
   return {

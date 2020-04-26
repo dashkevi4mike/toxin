@@ -1,15 +1,15 @@
 import { autobind } from 'core-decorators';
 
-import { IAuthData, IAuthByPasswordData, INewAccountData } from 'shared/types/auth';
+import { SignInPayload, SignUpPayload } from 'shared/types/models';
 
 import { HttpActions } from '../HttpActions';
 
 import BaseApi from './BaseApi';
 import { IStorage, storageKeys } from '../storage';
 import {
-  convertAuthRequest, convertAuthResponse,
-  convertRegResponse, convertAccountToServer } from '../converters/auth';
-import { IAuthResponse, IRegResponse } from '../types';
+  convertSignInRequest, convertSignInResponse,
+  convertSignUpResponse, convertSignUpRequest } from '../converters/auth';
+import { SignInResponse, SignUpResponse } from '../types';
 
 class Auth extends BaseApi {
   public onTokenChanged: (token: string | null) => void;
@@ -20,26 +20,21 @@ class Auth extends BaseApi {
   }
 
   @autobind
-  public async signUp(data: INewAccountData) {
+  public async signUp(data: SignUpPayload) {
     const response =
-      await this.actions.post<IRegResponse>('/api/v1/users/', convertAccountToServer(data));
-    const regData = this.handleResponse(response, convertRegResponse);
+      await this.actions.post<SignUpResponse>('/api//', convertSignUpRequest(data));
+    const { key } = this.handleResponse(response, convertSignUpResponse);
 
-    const { key } = regData;
     this.saveToken(key);
-    return regData;
   }
 
   @autobind
-  public async signIn({ email, password, name, lastname }: IAuthByPasswordData): Promise<IAuthData> {
-    const response = await this.actions.post<IAuthResponse>('/api-token-auth/',
-      { email, password, name, lastname });
-    const authData = this.handleResponse(response, convertAuthResponse);
-
-    const { key } = authData;
+  public async signIn({ email, password }: SignInPayload): Promise<void> {
+    const response = await this.actions.post<SignInResponse>('//',
+      convertSignInRequest({ email, password }));
+    const { key } = this.handleResponse(response, convertSignInResponse);
 
     this.saveToken(key);
-    return authData;
   }
 
   @autobind

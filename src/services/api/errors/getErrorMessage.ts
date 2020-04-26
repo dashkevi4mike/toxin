@@ -6,7 +6,7 @@ import { isApiError } from './ApiError';
  */
 function getErrorMessage(error: any): string {
   if (isApiError(error)) {
-    return error.code || error.cause || error.name;
+    return error.code;
   }
 
   if (error instanceof Error) {

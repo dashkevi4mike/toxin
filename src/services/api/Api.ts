@@ -18,7 +18,7 @@ class Api {
   };
 
   constructor(storage: IStorage) {
-    this.actions = new HttpActions(getEnvParams().API_HOST, this.headers);
+    this.actions = new HttpActions(getEnvParams().apiHost, this.headers);
     this.auth = new Auth(this.actions, storage,  this.setTokenForEachApi);
 
     const token = this.auth.getToken();

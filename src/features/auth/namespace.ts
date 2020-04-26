@@ -15,6 +15,8 @@ export type SignInPayload = {
 export type SignUpPayload = {
   email: string;
   password: string;
+  name: string;
+  lastName: string;
 }
 
 export type SignInAction = IAction<'AUTH:SIGN_IN', SignInPayload>;
