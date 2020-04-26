@@ -8,9 +8,10 @@ const entry = makeFeatureEntry({
   actionCreators,
   selectors,
   reduxEntry: {
-    reducers: { profile: reducer },
+    reducers: { auth: reducer },
   },
 });
 
 type Entry = typeof entry;
+
 export { Entry, entry };

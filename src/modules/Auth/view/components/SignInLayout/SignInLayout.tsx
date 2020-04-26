@@ -5,11 +5,15 @@ import { Layout } from '../../../../shared';
 
 import { routes } from 'modules/routes';
 
+import { entry as authEntry } from 'features/auth/entry';
+
 import './SignInLayout.scss';
 
 type Props = {};
 
 const b = block('sign-in-layout');
+
+const SignIn = authEntry.containers.SignIn;
 
 const headerLinks = [
   { title: 'Home', href: '404' },
@@ -60,7 +64,7 @@ function SignInLayoutComponent(_props: Props) {
     <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
-          
+          <SignIn />
         </div>
       </div>
     </Layout>

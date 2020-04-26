@@ -4,17 +4,14 @@
   padding: 50px 0;
   width: 100%;
   height: calc(100vh - #{$headerHeight});
-  background: url(./imgs/background.png);
+  background: url(../imgs/auth-background.png);
 
   &__inner {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
     @include layout();
-
-    @include breakpoint-down('md') {
-      flex-direction: column;
-      align-items: center;
-    }
   }
 }

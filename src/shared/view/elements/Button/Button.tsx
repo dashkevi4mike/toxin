@@ -8,7 +8,7 @@ const b = block('button');
 type Props = {
   id?: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   theme: 'filled' | 'transparent';
   type: 'button' | 'submit' | 'reset';
   children: React.ReactNode;
