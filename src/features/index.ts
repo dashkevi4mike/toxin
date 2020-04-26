@@ -1,3 +1,3 @@
-import * as profile from './profile';
+import * as auth from './auth';
 
-export { profile };
+export { auth };

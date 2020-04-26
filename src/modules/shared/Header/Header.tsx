@@ -4,7 +4,9 @@ import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 
 import { Link as LinkType } from 'shared/types/models';
 
-import { Logo } from 'shared/view/elements';
+import { Logo, Button } from 'shared/view/elements';
+
+import { routes } from 'modules/routes';
 
 import { Submenu } from '../Submenu/Submenu';
 
@@ -23,14 +25,18 @@ class HeaderComponent extends React.Component<Props> {
     return (
       <header className={b()}>
         <div className={b('inner')}>
-          <div className={b('logo')}>
+          <Link 
+            className={b('logo')}
+            to={routes.intro.getRedirectPath()}
+            key={routes.intro.getElementKey()}
+          >
             <Logo />
-          </div>
+          </Link>
           <nav className={b('navigation')}>
             {links.map((link: LinkType)=> {
               return (
                 <Link 
-                  className={b('link', {state: history.location.pathname.indexOf(link.href) !== -1 ? 'active': 'inactive' })}
+                  className={b('link', { state: history.location.pathname.indexOf(link.href) !== -1 ? 'active': 'inactive' })}
                   to={link.href}
                   key={link.title}
                 >
@@ -44,6 +50,13 @@ class HeaderComponent extends React.Component<Props> {
                 </Link>
               );
             })}
+            <Link
+              className={b('link')}
+              to={routes.auth["sign-in"].getRedirectPath()}
+              key={routes.auth.getElementKey()}
+            >
+              <Button onClick={()=>{}} type="button" theme="filled">Sign In</Button>
+            </Link>
           </nav>
         </div>
       </header>

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { editReducer } from './edit';
+import { communicationReducer } from './communications';
 import * as NS from '../../namespace';
 
 export const reducer = combineReducers<NS.IReduxState>({
-  edit: editReducer,
+  communications: communicationReducer,
 });

@@ -40,17 +40,7 @@ export interface IFeatureEntry {
 export interface IAppReduxState {
   // services
   // features
-  profile: features.profile.namespace.IReduxState;
+  auth: features.auth.namespace.IReduxState;
 }
 
 export type RootSaga = (deps: IDependencies) => () => SagaIterator;
-
-export type Lang = 'en-US' | 'ru-RU';
-
-export type Uid = number;
-
-export interface IAssets {
-  javascript: string[];
-  styles: string[];
-  favicons: CheerioElement[];
-}

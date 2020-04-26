@@ -1,0 +1,42 @@
+@import '~shared/styles/mixins';
+
+.sign-up {
+  display: block;
+  padding: 30px;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: white;
+
+  &__title {
+    margin-bottom: 25px;
+    color: $darkShade100;
+
+    @include font('h1');
+  }
+
+  &__field {
+    margin-bottom: 10px;
+  }
+
+  &__submit-button {
+    margin: 15px 0 35px;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include breakpoint-down('sm') {
+      flex-direction: column;
+    }
+  }
+
+  &__link {
+    @include breakpoint-down('sm') {
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import block from 'bem-cn';
 import { autobind } from 'core-decorators';
 import { Form, FormRenderProps } from 'react-final-form';
 
-import { getFieldWithComponent } from 'shared/helpers/react'
+import { getFieldWithComponent } from 'shared/helpers/react';
 
 import { Dropdown } from '../Dropdown/Dropdown';
 import { NumberInput } from '../NumberInput/NumberInput';
