@@ -22,7 +22,7 @@ class Auth extends BaseApi {
   @autobind
   public async signUp(data: SignUpPayload) {
     const response =
-      await this.actions.post<SignUpResponse>('/api//', convertSignUpRequest(data));
+      await this.actions.post<SignUpResponse>('/api/auth/registration/', convertSignUpRequest(data));
     const { key } = this.handleResponse(response, convertSignUpResponse);
 
     this.saveToken(key);
@@ -30,7 +30,7 @@ class Auth extends BaseApi {
 
   @autobind
   public async signIn({ email, password }: SignInPayload): Promise<void> {
-    const response = await this.actions.post<SignInResponse>('//',
+    const response = await this.actions.post<SignInResponse>('/api/auth/login/',
       convertSignInRequest({ email, password }));
     const { key } = this.handleResponse(response, convertSignInResponse);
 

@@ -8,11 +8,13 @@ export function convertSignInRequest(payload: SignInPayload): SignInRequest {
 }
 
 export function convertSignUpRequest(payload: SignUpPayload): SignUpRequest {
-  const { name, lastName, email, password } = payload;
+  const { name, lastName, email, password, news } = payload;
   return {
     name,
     email,
-    password,
+    password1: password,
+    password2: password,
+    news,
     last_name: lastName,
   }
 }

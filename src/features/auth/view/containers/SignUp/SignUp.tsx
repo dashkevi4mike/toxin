@@ -67,7 +67,7 @@ class SignUpComponent extends React.PureComponent<IProps> {
         </div>
         <div className={b('field')}>
           <TextField
-            name="lastname"
+            name="lastName"
             placeholder="Last name"
             validateOnChange
             isRequired

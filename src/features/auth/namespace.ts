@@ -17,6 +17,7 @@ export type SignUpPayload = {
   password: string;
   name: string;
   lastName: string;
+  news: boolean;
 }
 
 export type SignInAction = IAction<'AUTH:SIGN_IN', SignInPayload>;

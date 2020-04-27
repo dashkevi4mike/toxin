@@ -8,5 +8,6 @@ export type SignUpPayload = {
   password: string;
   name: string;
   lastName: string;
+  news: boolean;
 }
   

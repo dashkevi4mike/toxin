@@ -1,6 +1,6 @@
 import { makeFeatureEntry } from 'shared/helpers/makeFeatureEntry';
 
-import { actionCreators, selectors, reducer } from './redux';
+import { actionCreators, selectors, reducer, rootSaga } from './redux';
 import * as containers from './view/containers';
 
 const entry = makeFeatureEntry({
@@ -9,6 +9,7 @@ const entry = makeFeatureEntry({
   selectors,
   reduxEntry: {
     reducers: { auth: reducer },
+    sagas: [ rootSaga ] 
   },
 });
 
