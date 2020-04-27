@@ -11,14 +11,8 @@ class Api {
 
   private actions: HttpActions;
 
-  private headers = {
-    get: {
-      Accept: 'application/vnd.github.v3+json',
-    },
-  };
-
   constructor(storage: IStorage) {
-    this.actions = new HttpActions(getEnvParams().apiHost, this.headers);
+    this.actions = new HttpActions(getEnvParams().apiHost);
     this.auth = new Auth(this.actions, storage,  this.setTokenForEachApi);
 
     const token = this.auth.getToken();
