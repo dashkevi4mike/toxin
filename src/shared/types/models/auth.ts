@@ -10,4 +10,7 @@ export type SignUpPayload = {
   lastName: string;
   news: boolean;
 }
-  
+
+export type ResetPasswordPayload = {
+  email: string;
+}

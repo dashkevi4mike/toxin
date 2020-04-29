@@ -1,6 +1,6 @@
 import { autobind } from 'core-decorators';
 
-import { SignInPayload, SignUpPayload } from 'shared/types/models';
+import { SignInPayload, SignUpPayload, ResetPasswordPayload } from 'shared/types/models';
 
 import { HttpActions } from '../HttpActions';
 
@@ -8,6 +8,7 @@ import BaseApi from './BaseApi';
 import { IStorage, storageKeys } from '../storage';
 import {
   convertSignInRequest, convertSignInResponse,
+  convertResetPasswordRequest, convertResetPasswordResponse,
   convertSignUpResponse, convertSignUpRequest } from '../converters/auth';
 import { SignInResponse, SignUpResponse } from '../types';
 
@@ -35,6 +36,13 @@ class Auth extends BaseApi {
     const { key } = this.handleResponse(response, convertSignInResponse);
 
     this.saveToken(key);
+  }
+
+  @autobind
+  public async resetPassword({ email }: ResetPasswordPayload): Promise<void> {
+    const response = await this.actions.post<SignInResponse>('/api/auth/reset/',
+      convertResetPasswordRequest({ email }));
+    this.handleResponse(response, convertResetPasswordResponse);
   }
 
   @autobind

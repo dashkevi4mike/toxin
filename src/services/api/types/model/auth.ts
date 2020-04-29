@@ -6,6 +6,7 @@ export type SignInResponse = TokenResponse;
 export type SignUpResponse = TokenResponse;
 export type ServerSignUpResponse = TokenResponse;
 export type ServerSignInResponse = TokenResponse;
+export type ServerResetPasswordResponse = {};
 
 
 export type SignInRequest = {
@@ -21,3 +22,9 @@ export type SignUpRequest = {
   last_name: string;
   news: boolean;
 }
+
+export type ResetPasswordRequest = {
+  email: string;
+}
+
+export type ResetPasswordResponse = {}

@@ -21,3 +21,13 @@ export const {
   'AUTH:SIGN_UP_SUCCESS',
   'AUTH:SIGN_UP_FAIL',
 );
+
+export const {
+  execute: resetPassword,
+  completed: resetPasswordSuccess,
+  failed: resetPasswordFail,
+} = makeCommunicationActionCreators<NS.ResetPasswordAction, NS.ResetPasswordActionSuccess, NS.ResetPasswordActionFail>(
+  'AUTH:RESET_PASSWORD',
+  'AUTH:RESET_PASSWORD_SUCCESS',
+  'AUTH:RESET_PASSWORD_FAIL',
+);

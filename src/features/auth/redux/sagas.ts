@@ -8,12 +8,14 @@ import * as actions from './actionCreators';
 
 const signInType: NS.SignInAction['type'] = 'AUTH:SIGN_IN';
 const signUpType: NS.SignUpAction['type'] = 'AUTH:SIGN_UP';
+const resetPasswordType: NS.ResetPasswordAction['type'] = 'AUTH:RESET_PASSWORD';
 
 function rootSaga(deps: IDependencies) {
   return function* saga() {
     yield all([
       takeLatest(signInType, signInSaga, deps),
       takeLatest(signUpType, signUpSaga, deps),
+      takeLatest(resetPasswordType, resetPasswordSaga, deps),
     ]);
   };
 }
@@ -37,6 +39,17 @@ export function* signInSaga({ api }: IDependencies, action: NS.SignInAction) {
   } catch (error) {
     const message = getErrorMsg(error);
     yield put(actions.signInFail(message));
+  }
+}
+
+export function* resetPasswordSaga({ api }: IDependencies, action: NS.ResetPasswordAction) {
+  try {
+    yield call(api.auth.resetPassword, action.payload);
+    yield put(actions.resetPasswordSuccess());
+    // yield put(actions.checkUserAuth());
+  } catch (error) {
+    const message = getErrorMsg(error);
+    yield put(actions.resetPasswordFail(message));
   }
 }
 
