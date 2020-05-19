@@ -26,4 +26,14 @@ export const communicationReducer = combineReducers<NS.IReduxState['communicatio
       'AUTH:SIGN_UP_FAIL',
       initial.communications.signUp,
     ),
+  resetPassword: makeCommunicationReducer<
+    NS.ResetPasswordAction,
+    NS.ResetPasswordActionSuccess,
+    NS.ResetPasswordActionFail
+    >(
+      'AUTH:RESET_PASSWORD',
+      'AUTH:RESET_PASSWORD_SUCCESS',
+      'AUTH:RESET_PASSWORD_FAIL',
+      initial.communications.resetPassword,
+    ),
 });

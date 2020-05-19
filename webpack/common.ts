@@ -51,6 +51,7 @@ export const getCommonPlugins: (type: BuildType) => webpack.Plugin[] = type => [
   }),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV_MODE': JSON.stringify(process.env.NODE_ENV_MODE),
+    'process.env.API_HOST': JSON.stringify(process.env.API_HOST || 'http://localhost:8000'),
     __HOST__: JSON.stringify('http://localhost:3000'),
     __LANG__: JSON.stringify(process.env.LANG || 'en'),
     __CLIENT__: true,
@@ -217,7 +218,7 @@ export const commonConfig: webpack.Configuration = {
     hot: withHot,
     contentBase: path.resolve('..', 'build'),
     host: '0.0.0.0',
-    port: 8000,
+    port: 3000,
     inline: true,
     lazy: false,
     historyApiFallback: true,

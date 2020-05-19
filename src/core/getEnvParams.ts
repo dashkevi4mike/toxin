@@ -5,12 +5,13 @@ export function getEnvParams() {
   const isDevelopment = process.env.NODE_ENV === 'development';
   const isWatchMode = process.env.WATCH_MODE === 'true';
   const withAnalyze = process.env.BUNDLE_ANALYZE_MODE === 'true';
-  const forGHPages = process.env.FOR_GH_PAGES === 'true';
-
+  
   const chunkName = isProduction ? 'id' : 'name';
   const chunkHash = isWatchMode && !isProduction ? 'hash' : 'chunkhash';
   const withHot = isWatchMode && isDevelopment;
   const appVersion = appInfo.version;
+  const apiHost = process.env.API_HOST || '';
+  const localStorageVersion = process.env.LOCAL_STORAGE_VERSION || '1.0';
 
   return {
     isProduction,
@@ -21,6 +22,7 @@ export function getEnvParams() {
     chunkHash,
     withHot,
     appVersion,
-    forGHPages,
+    apiHost,
+    localStorageVersion,
   };
 }

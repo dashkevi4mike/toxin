@@ -25,7 +25,8 @@
         "TS_NODE_FILES": true,
         "WATCH_MODE": true,
         "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
-        "THREADED": false
+        "THREADED": false,
+        "API_HOST": "http://local.toxin.com"
       }
     },
     "watch:prod": {
@@ -35,7 +36,8 @@
         "TS_NODE_FILES": true,
         "WATCH_MODE": true,
         "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
-        "THREADED": false
+        "THREADED": false,
+        "API_HOST": "http://localhost:8000"
       }
     },
     "analyze:dev": {
@@ -44,7 +46,8 @@
         "BUNDLE_ANALYZE_MODE": true,
         "TS_NODE_FILES": true,
         "NODE_ENV": "development",
-        "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}"
+        "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
+        "API_HOST": "http://localhost:8000"
       }
     },
     "analyze:prod": {
@@ -53,7 +56,8 @@
         "BUNDLE_ANALYZE_MODE": true,
         "TS_NODE_FILES": true,
         "NODE_ENV": "production",
-        "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}"
+        "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
+        "API_HOST": "http://localhost:8000"
       }
     },
     "build:dev": {
@@ -62,7 +66,8 @@
         "NODE_ENV": "development",
         "TS_NODE_FILES": true,
         "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
-        "THREADED": false
+        "THREADED": false,
+        "API_HOST": "http://local.toxin.com"
       }
     },
     "build:prod": {
@@ -71,7 +76,8 @@
         "NODE_ENV": "production",
         "TS_NODE_FILES": true,
         "TS_NODE_COMPILER_OPTIONS": "{\"target\": \"es5\", \"module\": \"commonjs\"}",
-        "THREADED": false
+        "THREADED": false,
+        "API_HOST": "http://localhost:8000"
       }
     }
   },

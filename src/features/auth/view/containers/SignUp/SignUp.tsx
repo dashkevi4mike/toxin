@@ -9,10 +9,9 @@ import { routes } from 'modules/routes';
 import { getFieldWithComponent } from 'shared/helpers/react';
 import { Button, EmailInput, PasswordInput, Input, ToggleButton } from 'shared/view/elements';
 import { IAppReduxState } from 'shared/types/app';
+import { SignUpPayload } from 'shared/types/models';
 import { ICommunication } from 'shared/types/redux';
 import { actionCreators, selectors } from './../../../redux';
-
-import * as NS from '../../../namespace';
 
 import './SignUp.scss';
 
@@ -67,7 +66,7 @@ class SignUpComponent extends React.PureComponent<IProps> {
         </div>
         <div className={b('field')}>
           <TextField
-            name="lastname"
+            name="lastName"
             placeholder="Last name"
             validateOnChange
             isRequired
@@ -114,7 +113,7 @@ class SignUpComponent extends React.PureComponent<IProps> {
   }
 
   @autobind
-  private handleFormSubmit(values:  NS.SignUpPayload) {
+  private handleFormSubmit(values:  SignUpPayload) {
     const { signUp } = this.props;
 
     signUp(values);
@@ -123,4 +122,4 @@ class SignUpComponent extends React.PureComponent<IProps> {
 
 const connectedComponent = connect(mapState, mapDispatch)(SignUpComponent);
 
-export { connectedComponent as SignUp, SignUpComponent, IProps as IProfileEditProps };
+export { connectedComponent as SignUp, SignUpComponent, IProps as ISignUpProps };

@@ -6,13 +6,13 @@ import { autobind } from 'core-decorators';
 import { Link } from 'react-router-dom';
 
 import { routes } from 'modules/routes';
+import { SignInPayload } from 'shared/types/models';
 import { getFieldWithComponent } from 'shared/helpers/react';
 import { Button, EmailInput, PasswordInput, TextButton } from 'shared/view/elements';
 import { IAppReduxState } from 'shared/types/app';
 import { ICommunication } from 'shared/types/redux';
 import { actionCreators, selectors } from './../../../redux';
 
-import * as NS from '../../../namespace';
 
 import './SignIn.scss';
 
@@ -97,7 +97,7 @@ class SignInComponent extends React.PureComponent<IProps> {
   }
 
   @autobind
-  private handleFormSubmit(values: NS.SignInPayload) {
+  private handleFormSubmit(values: SignInPayload) {
     const { signIn } = this.props;
 
     signIn(values);
@@ -106,4 +106,4 @@ class SignInComponent extends React.PureComponent<IProps> {
 
 const connectedComponent = connect(mapState, mapDispatch)(SignInComponent);
 
-export { connectedComponent as SignIn, SignInComponent, IProps as IProfileEditProps };
+export { connectedComponent as SignIn, SignInComponent, IProps as ISignInProps };

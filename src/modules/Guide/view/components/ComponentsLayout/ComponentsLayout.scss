@@ -3,14 +3,41 @@
 .components-layout {
   padding: 50px 0;
   width: 100%;
-  background-color: #ffff;
+  background-color: #f1f1f1;
 
   &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint-down('md') {
+      flex-direction: column;
+      align-items: center;
+    }
+
     @include layout();
   }
 
-  &__row {
+  &__column {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: space-between;
+    margin: 0 20px;
+    width: 380px;
+
+    @include breakpoint-down('md') {
+      width: 320px;
+    }
+  }
+
+  &__element {
+    margin-bottom: 20px;
+  }
+
+  &__group-title {
+    margin-bottom: 5px;
+    color: $darkShade100;
+    text-transform: uppercase;
+
+    @include font('h3');
   }
 }

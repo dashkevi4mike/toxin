@@ -7,11 +7,13 @@ import { routes } from 'modules/routes';
 
 import { entry as authEntry } from 'features/auth/entry';
 
-import './ComponentsLayout.scss';
+import './ResetPasswordLayout.scss';
 
 type Props = {};
 
-const b = block('components-layout');
+const b = block('sign-up-layout');
+
+const ResetPassword = authEntry.containers.ResetPassword;
 
 const headerLinks = [
   { title: 'Home', href: '404' },
@@ -56,32 +58,17 @@ const footerLinks = [
   }
 ];
 
-const SignUp = authEntry.containers.SignUp;
-const SignIn = authEntry.containers.SignIn;
-const ResetPassword = authEntry.containers.ResetPassword;
-
-function ComponentsLayoutComponent(_props: Props) {
+function ResetPasswordLayoutComponent(_props: Props) {
 
   return (
     <Layout headerLinks={headerLinks} footerLinks={footerLinks}>
       <div className={b()}>
         <div className={b('inner')}>
-          <div className={b('column')}>
-            <div className={b('element')}>
-              <SignUp />
-            </div>
-            <div className={b('element')}>
-              <SignIn />
-            </div>
-            <div className={b('element')}>
-              <ResetPassword />
-            </div>
-          </div>
+          <ResetPassword />
         </div>
       </div>
     </Layout>
   );
-}
-;
+};
 
-export { ComponentsLayoutComponent as ComponentsLayout, Props as ComponentsLayoutProps };
+export { ResetPasswordLayoutComponent as ResetPasswordLayout, Props as ResetPasswordLayoutProps };

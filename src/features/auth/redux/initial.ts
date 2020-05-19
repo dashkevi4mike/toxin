@@ -5,6 +5,7 @@ const initial: IReduxState = {
   communications: {
     signIn: initialCommunicationField,
     signUp: initialCommunicationField,
+    resetPassword: initialCommunicationField,
   },
 };
 
