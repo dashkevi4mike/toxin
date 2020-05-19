@@ -36,7 +36,7 @@ Tests uses Jest framework [Jest](http://facebook.github.io/jest/)
   [Webstorm](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-webstorm)
 ).
 
-## Instructions for local running
+## Instructions for local running on Mac OS
 for local running you need setup nginx.
 
 * Add `127.0.0.1	local.toxin.com` in your /etc/hosts
