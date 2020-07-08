@@ -35,25 +35,3 @@ Tests uses Jest framework [Jest](http://facebook.github.io/jest/)
   [VSCode](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-vs-code) /
   [Webstorm](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-webstorm)
 ).
-
-## Instructions for local running on Mac OS
-for local running you need setup nginx.
-
-* Add `127.0.0.1	local.toxin.com` in your /etc/hosts
-* Add local.toxin.com.conf in /usr/local/etc/nginx/servers/ with this content:
-```
-  server {
-    listen 80;
-    server_name local.toxin.com;
-
-    location /api/ {
-      proxy_pass http://localhost:8000/api/;
-    }
-
-    location / {
-      proxy_pass http://localhost:3000/;
-    }
-  }
-```
-* Restart nginx with `brew services restart nginx`
-* Frontend will available in http://local.toxin.com/ locally. Dont forget to start locally backend or change api url in package.json and in nginx config
