@@ -179,7 +179,7 @@
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^2.0.0",
     "final-form": "^4.11.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.0",
     "normalizr": "^2.3.1",
     "postcss-easy-import": "^3.0.0",
